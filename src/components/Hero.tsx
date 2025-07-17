@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap, Shield, Home } from 'lucide-react';
@@ -30,15 +31,6 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Content */}
           <div className="text-center lg:text-left">
-            {/* Logo */}
-            <div className="flex justify-center lg:justify-start mb-8">
-              <img 
-                src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
-                alt="Iotech.Dev - Soluções Tecnológicas" 
-                className="h-24 w-auto"
-              />
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light mb-6 text-white leading-tight">
               Automação Residencial
               <span className="block bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-medium">
@@ -92,12 +84,16 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right column - Visual element */}
+          {/* Right column - Logo element */}
           <div className="relative lg:flex justify-center items-center hidden">
             <div className="relative w-full max-w-lg">
-              {/* Central smart home icon */}
-              <div className="relative bg-gradient-to-br from-cyan-400/20 to-blue-600/20 backdrop-blur-md rounded-full p-16 border border-cyan-400/30">
-                <Home className="h-32 w-32 text-cyan-400 mx-auto" />
+              {/* Central logo with effects */}
+              <div className="relative bg-gradient-to-br from-cyan-400/20 to-blue-600/20 backdrop-blur-md rounded-full p-16 border border-cyan-400/30 flex items-center justify-center">
+                <img 
+                  src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
+                  alt="Iotech.Dev - Automação Residencial Inteligente" 
+                  className="h-32 w-auto"
+                />
                 
                 {/* Floating connection nodes */}
                 <div className="absolute -top-4 -left-4 w-8 h-8 bg-cyan-400 rounded-full animate-pulse"></div>

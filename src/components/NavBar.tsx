@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Menu, X } from 'lucide-react';
@@ -42,8 +43,8 @@ const NavBar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
         scrolled 
-          ? "py-2 sm:py-3 bg-white/95 backdrop-blur-md shadow-lg" 
-          : "py-3 sm:py-4 bg-transparent"
+          ? "py-2 sm:py-3 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-950 backdrop-blur-md shadow-lg" 
+          : "py-3 sm:py-4 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-950"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 flex justify-between items-center">
@@ -70,22 +71,14 @@ const NavBar = () => {
             <a
               key={link.id}
               href={`#${link.id}`}
-              className={cn(
-                "transition-colors duration-300 text-sm xl:text-base font-medium relative group",
-                scrolled 
-                  ? "text-slate-700 hover:text-cyan-600" 
-                  : "text-white hover:text-cyan-400"
-              )}
+              className="text-white hover:text-cyan-400 transition-colors duration-300 text-sm xl:text-base font-medium relative group"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection(link.id);
               }}
             >
               {link.name}
-              <span className={cn(
-                "absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
-                scrolled ? "bg-cyan-600" : "bg-cyan-400"
-              )}></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </nav>
@@ -94,12 +87,7 @@ const NavBar = () => {
         <Sheet>
           <SheetTrigger asChild>
             <button 
-              className={cn(
-                "lg:hidden p-2 rounded-md transition-colors",
-                scrolled 
-                  ? "text-slate-700 hover:bg-slate-100" 
-                  : "text-white hover:bg-white/10"
-              )}
+              className="lg:hidden p-2 rounded-md text-white hover:bg-white/10 transition-colors"
               aria-label="Open menu"
             >
               <Menu size={20} className="sm:w-6 sm:h-6" />
