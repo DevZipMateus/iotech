@@ -58,7 +58,7 @@ const NavBar = () => {
             }}
           >
             <img 
-              src="/lovable-uploads/3fe2c4f3-a2d9-445f-887c-073a7a09900a.png" 
+              src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
               alt="Iotech.Dev" 
               className="h-8 sm:h-10 lg:h-12 w-auto"
             />
@@ -111,7 +111,7 @@ const NavBar = () => {
               <div className="flex justify-between items-center p-4 sm:p-6 border-b border-cyan-400/20">
                 <div className="flex items-center space-x-3">
                   <img 
-                    src="/lovable-uploads/3fe2c4f3-a2d9-445f-887c-073a7a09900a.png" 
+                    src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
                     alt="Iotech.Dev" 
                     className="h-8 sm:h-10 w-auto"
                   />

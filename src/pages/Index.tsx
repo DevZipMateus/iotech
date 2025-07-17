@@ -34,7 +34,7 @@ const Index = () => {
       { property: 'og:description', content: 'Soluções de automação residencial personalizadas para uma vida mais inteligente e confortável.' },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: window.location.href },
-      { property: 'og:image', content: '/lovable-uploads/3fe2c4f3-a2d9-445f-887c-073a7a09900a.png' }
+      { property: 'og:image', content: '/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png' }
     ];
 
     ogTags.forEach(tag => {
@@ -66,7 +66,7 @@ const Index = () => {
       "telephone": "+55 47 99172-4679",
       "email": "contatoiotech.dev@gmail.com",
       "url": window.location.origin,
-      "logo": window.location.origin + "/lovable-uploads/3fe2c4f3-a2d9-445f-887c-073a7a09900a.png",
+      "logo": window.location.origin + "/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png",
       "sameAs": ["https://www.instagram.com/iotech.oficial/"]
     };
 
