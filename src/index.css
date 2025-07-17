@@ -37,6 +37,11 @@
     --input: 214 32% 88%;
     --ring: 189 94% 50%;
 
+    /* Cores prata para efeitos sofisticados */
+    --silver-light: 210 20% 95%;
+    --silver-medium: 210 12% 68%;
+    --silver-dark: 210 6% 38%;
+
     --radius: 0.5rem;
   }
 
@@ -101,19 +106,120 @@
   .card-shadow {
     @apply shadow-[0px_4px_20px_rgba(0,0,0,0.04)] sm:shadow-[0px_8px_30px_rgba(0,0,0,0.08)];
   }
-  
+
+  /* Efeitos prateados sofisticados */
+  .silver-accent {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .silver-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+  }
+
+  .silver-border {
+    border: 1px solid hsl(var(--silver-medium));
+    box-shadow: 
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .silver-glow {
+    box-shadow: 
+      0 0 20px rgba(192, 192, 192, 0.3),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+
+  .silver-gradient-bg {
+    background: linear-gradient(135deg, 
+      hsl(210, 20%, 98%) 0%,
+      hsl(210, 16%, 88%) 25%,
+      hsl(210, 12%, 68%) 50%,
+      hsl(210, 16%, 88%) 75%,
+      hsl(210, 20%, 98%) 100%);
+  }
+
+  .metallic-text {
+    background: linear-gradient(135deg, 
+      hsl(210, 6%, 38%) 0%,
+      hsl(210, 20%, 85%) 25%,
+      hsl(210, 30%, 95%) 50%,
+      hsl(210, 20%, 85%) 75%,
+      hsl(210, 6%, 38%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   /* Background principal das seções */
   .section-bg-main {
     background: hsl(var(--iotech-blue-dark));
+    position: relative;
+  }
+
+  .section-bg-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      transparent 0%,
+      rgba(192, 192, 192, 0.05) 25%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(192, 192, 192, 0.05) 75%,
+      transparent 100%);
+    pointer-events: none;
   }
   
   /* Semi-transparent section backgrounds - removidas pois não serão mais usadas */
   .section-bg-semi {
     background: hsl(var(--iotech-blue-dark));
+    position: relative;
+  }
+
+  .section-bg-semi::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, 
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(192, 192, 192, 0.04) 50%,
+      transparent 100%);
+    pointer-events: none;
   }
   
   .section-bg-alt {
     background: hsl(var(--iotech-blue-dark));
+    position: relative;
+  }
+
+  .section-bg-alt::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+      transparent 0%,
+      rgba(192, 192, 192, 0.03) 25%,
+      rgba(255, 255, 255, 0.06) 50%,
+      rgba(192, 192, 192, 0.03) 75%,
+      transparent 100%);
+    pointer-events: none;
   }
   
   /* Animation delays */
@@ -127,7 +233,7 @@
   .animation-delay-1000 { animation-delay: 1000ms; }
   .animation-delay-1500 { animation-delay: 1500ms; }
 
-  /* Circuit pattern overlay */
+  /* Circuit pattern overlay com efeito prateado */
   .circuit-overlay {
     position: absolute;
     top: 0;
@@ -135,7 +241,7 @@
     right: 0;
     bottom: 0;
     opacity: 0.1;
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300E6FF' fill-opacity='0.4'%3E%3Ccircle cx='40' cy='40' r='2'/%3E%3Cpath d='M40 30v20M30 40h20M35 35l10 10M45 35l-10 10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C0C0C0' fill-opacity='0.4'%3E%3Ccircle cx='40' cy='40' r='2'/%3E%3Cpath d='M40 30v20M30 40h20M35 35l10 10M45 35l-10 10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
   }
 
@@ -168,6 +274,32 @@
     animation: slide-up 0.6s ease-out forwards;
   }
 
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes silver-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(192, 192, 192, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(192, 192, 192, 0.6);
+    }
+  }
+
+  .animate-silver-pulse {
+    animation: silver-pulse 3s ease-in-out infinite;
+  }
+
   /* Responsive optimizations */
   @media (max-width: 768px) {
     .animate-float {
@@ -177,7 +309,9 @@
 
   @media (prefers-reduced-motion: reduce) {
     .animate-float,
-    .animate-slide-up {
+    .animate-slide-up,
+    .animate-shimmer,
+    .animate-silver-pulse {
       animation: none !important;
       transform: none !important;
     }
