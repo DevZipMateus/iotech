@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Menu, X } from 'lucide-react';
@@ -60,7 +59,7 @@ const NavBar = () => {
             <img 
               src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
               alt="Iotech.Dev" 
-              className="h-8 sm:h-10 lg:h-12 w-auto"
+              className="h-24 w-auto"
             />
           </a>
         </div>
@@ -113,7 +112,7 @@ const NavBar = () => {
                   <img 
                     src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
                     alt="Iotech.Dev" 
-                    className="h-8 sm:h-10 w-auto"
+                    className="h-24 w-auto"
                   />
                 </div>
                 <SheetClose className="p-2 rounded-full hover:bg-white/10 transition-all text-white">

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap, Shield, Home } from 'lucide-react';
@@ -36,7 +35,7 @@ const Hero = () => {
               <img 
                 src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
                 alt="Iotech.Dev - Soluções Tecnológicas" 
-                className="h-20 sm:h-24 lg:h-28 w-auto"
+                className="h-24 w-auto"
               />
             </div>
 

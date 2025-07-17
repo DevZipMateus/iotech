@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Phone, Mail, Instagram } from 'lucide-react';
 
@@ -22,7 +21,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
                 alt="Iotech.Dev" 
-                className="h-12 w-auto"
+                className="h-24 w-auto"
               />
             </div>
             <p className="text-slate-300 mb-4 max-w-sm leading-relaxed">
