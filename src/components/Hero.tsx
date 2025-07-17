@@ -21,10 +21,18 @@ const Hero = () => {
         <div className="circuit-overlay"></div>
       </div>
       
-      {/* Animated background elements */}
+      {/* Animated background elements - repositioned for better balance */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse animation-delay-500"></div>
+        {/* Top left accent */}
+        <div className="absolute top-20 left-16 w-48 h-48 bg-cyan-400/8 rounded-full blur-3xl animate-pulse"></div>
+        {/* Top right accent */}
+        <div className="absolute top-32 right-20 w-32 h-32 bg-blue-500/12 rounded-full blur-2xl animate-pulse animation-delay-700"></div>
+        {/* Bottom left accent */}
+        <div className="absolute bottom-32 left-24 w-40 h-40 bg-cyan-300/10 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
+        {/* Center right - larger accent behind logo area */}
+        <div className="absolute top-1/2 right-1/4 transform -translate-y-1/2 w-80 h-80 bg-blue-400/6 rounded-full blur-3xl animate-pulse animation-delay-500"></div>
+        {/* Bottom right accent */}
+        <div className="absolute bottom-20 right-16 w-56 h-56 bg-cyan-500/8 rounded-full blur-3xl animate-pulse animation-delay-300"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-20 relative z-10">
