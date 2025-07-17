@@ -67,12 +67,12 @@ const Services = () => {
   ];
 
   return (
-    <section className="section-container bg-slate-50">
+    <section className="section-container section-bg-main">
       <div className="text-center mb-16">
-        <h2 className="section-title text-slate-800">
+        <h2 className="section-title text-white">
           Nossos Serviços
         </h2>
-        <p className="section-subtitle text-slate-600">
+        <p className="section-subtitle text-white/80">
           Soluções completas em automação residencial para transformar sua casa em um ambiente inteligente
         </p>
       </div>

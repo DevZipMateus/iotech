@@ -72,19 +72,19 @@ const Contact = () => {
   ];
 
   return (
-    <section className="section-container bg-slate-50">
+    <section className="section-container section-bg-main">
       <div className="text-center mb-16">
-        <h2 className="section-title text-slate-800">
+        <h2 className="section-title text-white">
           Entre em Contato
         </h2>
-        <p className="section-subtitle text-slate-600">
+        <p className="section-subtitle text-white/80">
           Estamos prontos para transformar sua casa em um ambiente inteligente. Vamos conversar!
         </p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-12">
         {/* Contact Form */}
-        <Card className="border-0 shadow-lg bg-white">
+        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-2xl font-semibold text-slate-800 flex items-center">
               <Send className="h-6 w-6 text-cyan-600 mr-3" />
@@ -181,7 +181,7 @@ const Contact = () => {
 
         {/* Contact Information */}
         <div className="space-y-6">
-          <Card className="border-0 shadow-lg bg-white">
+          <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-slate-800">
                 Informações de Contato
@@ -218,10 +218,10 @@ const Contact = () => {
           </Card>
 
           {/* Business Hours */}
-          <Card className="border-0 shadow-lg bg-gradient-to-br from-cyan-50 to-blue-50">
+          <Card className="border-0 shadow-lg bg-white/10 backdrop-blur-sm border-white/20">
             <CardHeader>
-              <CardTitle className="text-xl font-semibold text-slate-800 flex items-center">
-                <Clock className="h-5 w-5 text-cyan-600 mr-3" />
+              <CardTitle className="text-xl font-semibold text-white flex items-center">
+                <Clock className="h-5 w-5 text-cyan-400 mr-3" />
                 Horário de Atendimento
               </CardTitle>
             </CardHeader>
@@ -229,21 +229,21 @@ const Contact = () => {
             <CardContent>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-slate-700">Segunda a Sexta</span>
-                  <span className="text-slate-600">08:00 - 18:00</span>
+                  <span className="text-white/90">Segunda a Sexta</span>
+                  <span className="text-white/80">08:00 - 18:00</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-700">Sábado</span>
-                  <span className="text-slate-600">08:00 - 12:00</span>
+                  <span className="text-white/90">Sábado</span>
+                  <span className="text-white/80">08:00 - 12:00</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-700">Domingo</span>
-                  <span className="text-slate-600">Fechado</span>
+                  <span className="text-white/90">Domingo</span>
+                  <span className="text-white/80">Fechado</span>
                 </div>
               </div>
               
-              <div className="mt-4 p-3 bg-cyan-100 rounded-lg">
-                <p className="text-sm text-cyan-800">
+              <div className="mt-4 p-3 bg-cyan-500/20 rounded-lg border border-cyan-400/30">
+                <p className="text-sm text-cyan-200">
                   <strong>Atendimento de emergência:</strong> Disponível 24h para clientes com sistemas instalados.
                 </p>
               </div>

@@ -28,6 +28,7 @@
     --primary-foreground: 0 0% 100%;
     --iotech-cyan: 189 94% 50%; /* Cyan da logo */
     --iotech-blue: 220 70% 50%; /* Azul da logo */
+    --iotech-blue-dark: 232 79% 44%; /* #2029cc convertido para HSL */
     --iotech-gray: 215 20% 60%; /* Cinza da logo */
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
@@ -101,19 +102,18 @@
     @apply shadow-[0px_4px_20px_rgba(0,0,0,0.04)] sm:shadow-[0px_8px_30px_rgba(0,0,0,0.08)];
   }
   
-  /* Semi-transparent section backgrounds */
+  /* Background principal das seções */
+  .section-bg-main {
+    background: hsl(var(--iotech-blue-dark));
+  }
+  
+  /* Semi-transparent section backgrounds - removidas pois não serão mais usadas */
   .section-bg-semi {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(2px);
-    border-top: 1px solid rgba(189, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(189, 255, 255, 0.1);
+    background: hsl(var(--iotech-blue-dark));
   }
   
   .section-bg-alt {
-    background: rgba(240, 249, 255, 0.6);
-    backdrop-filter: blur(2px);
-    border-top: 1px solid rgba(240, 249, 255, 0.2);
-    border-bottom: 1px solid rgba(240, 249, 255, 0.2);
+    background: hsl(var(--iotech-blue-dark));
   }
   
   /* Animation delays */
