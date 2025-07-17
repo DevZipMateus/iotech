@@ -62,16 +62,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Cores específicas da TechHelp - mudança de laranja para vermelho
-				tech: {
-					blue: 'hsl(215, 70%, 45%)',
-					darkblue: 'hsl(215, 80%, 35%)',
-					lightblue: 'hsl(215, 60%, 55%)',
-					gray: 'hsl(215, 20%, 60%)',
-					lightgray: 'hsl(210, 30%, 94%)',
-					orange: 'hsl(0, 84%, 60%)', // Mudado para vermelho
-					green: 'hsl(142, 70%, 45%)',
-					white: '#FFFFFF',
+				// Cores específicas da Iotech.Dev baseadas na logo
+				iotech: {
+					cyan: 'hsl(189, 94%, 50%)', // Cyan vibrante da logo
+					blue: 'hsl(220, 70%, 50%)', // Azul principal da logo
+					darkblue: 'hsl(220, 80%, 35%)', // Azul mais escuro
+					lightblue: 'hsl(220, 60%, 70%)', // Azul mais claro
+					gray: 'hsl(215, 20%, 60%)', // Cinza da logo
+					lightgray: 'hsl(210, 20%, 94%)', // Cinza claro
+					slate: 'hsl(215, 25%, 25%)', // Cinza escuro
 				},
 			},
 			borderRadius: {
@@ -110,7 +109,7 @@ export default {
 				},
 				float: {
 					'0%, 100%': { transform: 'translateY(0)' },
-					'50%': { transform: 'translateY(-8px)' }
+					'50%': { transform: 'translateY(-12px)' }
 				},
 				pulse: {
 					'0%, 100%': { opacity: '1' },
@@ -125,7 +124,7 @@ export default {
 				'slide-down': 'slideDown 0.6s ease-out forwards',
 				'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
 				'slide-in-right': 'slideInRight 0.6s ease-out forwards',
-				'float': 'float 3s ease-in-out infinite',
+				'float': 'float 4s ease-in-out infinite',
 				'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
 			},
 			transitionDuration: {

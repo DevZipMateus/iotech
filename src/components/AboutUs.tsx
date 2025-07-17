@@ -1,210 +1,135 @@
 
-import React, { useEffect, useRef } from 'react';
-import { cn } from "@/lib/utils";
-import { Award, Users, Wrench, Shield, Clock, Star } from 'lucide-react';
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Lightbulb, Shield, Wrench, Users } from 'lucide-react';
 
 const AboutUs = () => {
-  const observerRef = useRef<IntersectionObserver | null>(null);
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const elementsRef = useRef<(HTMLElement | null)[]>([]);
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (entry.target === sectionRef.current) {
-              elementsRef.current.forEach((el, index) => {
-                if (el) {
-                  setTimeout(() => {
-                    el.classList.add('animate-slide-up');
-                  }, index * 100);
-                }
-              });
-            }
-            observerRef.current?.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observerRef.current.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (observerRef.current && sectionRef.current) {
-        observerRef.current.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const stats = [
+  const features = [
     {
-      icon: <Award className="h-8 w-8" />,
-      number: "15+",
-      label: "Anos de Experiência",
-      description: "Atendendo clientes com excelência"
+      icon: Lightbulb,
+      title: 'Inovação Própria',
+      description: 'Fabricamos nossos próprios produtos de automação, garantindo controle total sobre qualidade e inovação.'
     },
     {
-      icon: <Users className="h-8 w-8" />,
-      number: "5.000+",
-      label: "Clientes Satisfeitos",
-      description: "Equipamentos reparados com sucesso"
+      icon: Shield,
+      title: 'Qualidade Premium',
+      description: 'Sistemas integrados de alta qualidade para iluminação, climatização, segurança e entretenimento.'
     },
     {
-      icon: <Star className="h-8 w-8" />,
-      number: "98%",
-      label: "Taxa de Sucesso",
-      description: "Problemas resolvidos efetivamente"
+      icon: Wrench,
+      title: 'Soluções Personalizadas',
+      description: 'Cada projeto é único, desenvolvido especificamente para atender às necessidades do cliente.'
     },
     {
-      icon: <Shield className="h-8 w-8" />,
-      number: "90",
-      label: "Dias de Garantia",
-      description: "Em todos os nossos serviços"
-    }
-  ];
-
-  const values = [
-    {
-      icon: <Wrench className="h-10 w-10 text-red-600" />,
-      title: "Expertise Técnica",
-      description: "Equipe altamente qualificada com certificações e treinamentos constantes nas principais marcas do mercado."
-    },
-    {
-      icon: <Shield className="h-10 w-10 text-red-600" />,
-      title: "Confiabilidade",
-      description: "Transparência total no processo, desde o diagnóstico até a entrega, com garantia assegurada em todos os serviços."
-    },
-    {
-      icon: <Clock className="h-10 w-10 text-red-600" />,
-      title: "Agilidade",
-      description: "Processos otimizados para entregar seu equipamento funcionando no menor tempo possível, sem comprometer a qualidade."
+      icon: Users,
+      title: 'Experiência Premium',
+      description: 'Proporcionamos uma experiência de vida mais confortável, segura e eficiente para nossos clientes.'
     }
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-24 bg-white relative">
-      <div className="section-container">
-        <div className="text-center mb-20">
-          <div 
-            ref={el => elementsRef.current[0] = el}
-            className="inline-block bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold mb-4 opacity-0"
-          >
-            SOBRE NÓS
-          </div>
-          <h2 
-            ref={el => elementsRef.current[1] = el}
-            className="text-4xl md:text-5xl font-black text-black mb-6 opacity-0"
-          >
-            Líderes em Assistência Técnica
-            <br />
-            <span className="text-red-600">Há Mais de 15 Anos</span>
-          </h2>
-          <p 
-            ref={el => elementsRef.current[2] = el}
-            className="text-xl text-gray-600 max-w-4xl mx-auto opacity-0"
-          >
-            Somos a TechHelp Soluções, referência em assistência técnica especializada. 
-            Nossa missão é devolver a vida aos seus equipamentos eletrônicos com qualidade, 
-            agilidade e total transparência.
-          </p>
-        </div>
+    <section className="section-container">
+      <div className="text-center mb-16">
+        <h2 className="section-title text-slate-800">
+          Sobre a Iotech.Dev
+        </h2>
+        <p className="section-subtitle text-slate-600">
+          Inovação e tecnologia para transformar sua casa em um ambiente inteligente
+        </p>
+      </div>
 
-        {/* Estatísticas */}
-        <div className="grid md:grid-cols-4 gap-8 mb-20">
-          {stats.map((stat, index) => (
-            <div 
-              key={index}
-              ref={el => elementsRef.current[3 + index] = el}
-              className="text-center bg-gray-50 rounded-2xl p-8 opacity-0 hover:bg-red-50 transition-all duration-300"
-            >
-              <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-red-600 shadow-lg">
-                {stat.icon}
-              </div>
-              <div className="text-4xl font-black text-black mb-2">{stat.number}</div>
-              <div className="font-bold text-black mb-2">{stat.label}</div>
-              <div className="text-gray-600 text-sm">{stat.description}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* História e valores */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div 
-            ref={el => elementsRef.current[7] = el}
-            className="opacity-0"
-          >
-            <h3 className="text-3xl font-bold text-black mb-6">Nossa História</h3>
-            <div className="space-y-6 text-gray-600 leading-relaxed">
-              <p>
-                Fundada em <span className="font-semibold text-black">2008</span>, a TechHelp Soluções nasceu do sonho de transformar a relação entre pessoas e tecnologia. Começamos como uma pequena oficina especializada em televisões e hoje somos referência em assistência técnica multimarcas.
+      <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        {/* Left column - Content */}
+        <div className="order-2 lg:order-1">
+          <div className="space-y-6">
+            <h3 className="text-2xl lg:text-3xl font-light text-slate-800 mb-6">
+              Liderando o Futuro da 
+              <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent font-medium">
+                {' '}Automação Residencial
+              </span>
+            </h3>
+            
+            <p className="text-lg text-slate-600 leading-relaxed">
+              A Iotech.Dev se destaca pela <strong>fabricação própria</strong> de produtos de automação residencial inteligente, 
+              garantindo controle total sobre a qualidade e inovação de nossas soluções.
+            </p>
+            
+            <p className="text-lg text-slate-600 leading-relaxed">
+              Nosso foco está em criar <strong>soluções personalizadas e integradas</strong> para iluminação, climatização, 
+              segurança, entretenimento e controle de acesso, proporcionando uma experiência premium para nossos clientes.
+            </p>
+            
+            <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-6 rounded-lg border-l-4 border-cyan-500">
+              <p className="text-lg font-medium text-slate-800 mb-2">
+                "Personalizado para você, projetado para o futuro."
               </p>
-              <p>
-                Nossa trajetória é marcada pela <span className="font-semibold text-red-600">inovação constante</span> e pelo compromisso inabalável com a satisfação dos nossos clientes. Investimos continuamente em capacitação técnica, equipamentos de última geração e processos que garantem a máxima qualidade.
-              </p>
-              <p>
-                Hoje, com mais de <span className="font-semibold text-black">5.000 equipamentos reparados</span> e uma taxa de sucesso de 98%, somos a escolha preferida de famílias e empresas que buscam excelência em assistência técnica.
+              <p className="text-slate-600">
+                Este é nosso compromisso: criar soluções que se adaptem perfeitamente ao seu estilo de vida, 
+                sempre pensando na evolução tecnológica.
               </p>
             </div>
           </div>
+        </div>
 
-          <div 
-            ref={el => elementsRef.current[8] = el}
-            className="space-y-8 opacity-0"
-          >
-            <h3 className="text-3xl font-bold text-black mb-8">Nossos Valores</h3>
-            {values.map((value, index) => (
-              <div key={index} className="flex items-start space-x-4 bg-gray-50 rounded-xl p-6 hover:bg-red-50 transition-all duration-300">
-                <div className="flex-shrink-0 mt-1">
-                  {value.icon}
+        {/* Right column - Visual */}
+        <div className="order-1 lg:order-2">
+          <div className="relative">
+            <div className="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-2xl p-8 shadow-lg">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-white rounded-lg p-4 shadow-md">
+                  <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-3">
+                    <Lightbulb className="h-6 w-6 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-slate-800 mb-1">Iluminação</h4>
+                  <p className="text-sm text-slate-600">Inteligente</p>
                 </div>
-                <div>
-                  <h4 className="font-bold text-black text-lg mb-2">
-                    {value.title}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    {value.description}
-                  </p>
+                
+                <div className="bg-white rounded-lg p-4 shadow-md">
+                  <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-3">
+                    <Shield className="h-6 w-6 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-slate-800 mb-1">Segurança</h4>
+                  <p className="text-sm text-slate-600">Integrada</p>
+                </div>
+                
+                <div className="bg-white rounded-lg p-4 shadow-md">
+                  <div className="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mb-3">
+                    <Wrench className="h-6 w-6 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-slate-800 mb-1">Climatização</h4>
+                  <p className="text-sm text-slate-600">Controlada</p>
+                </div>
+                
+                <div className="bg-white rounded-lg p-4 shadow-md">
+                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-3">
+                    <Users className="h-6 w-6 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-slate-800 mb-1">Entretenimento</h4>
+                  <p className="text-sm text-slate-600">Premium</p>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Call to Action */}
-        <div 
-          ref={el => elementsRef.current[9] = el}
-          className="bg-black rounded-2xl p-12 text-center mt-20 opacity-0"
-        >
-          <h3 className="text-white text-3xl font-bold mb-4">
-            Pronto Para Conhecer a Diferença?
-          </h3>
-          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Junte-se aos milhares de clientes que já experimentaram nossa excelência em assistência técnica. 
-            Seu equipamento em boas mãos, sempre.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <a 
-              href="https://wa.me/5555999887766?text=Olá!%20Gostaria%20de%20conhecer%20melhor%20os%20serviços%20da%20TechHelp." 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold transition-all duration-300 transform hover:scale-105"
-            >
-              FALAR CONOSCO
-            </a>
-            <button 
-              className="bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-lg font-bold transition-all duration-300"
-              onClick={() => {
-                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              VER SERVIÇOS
-            </button>
-          </div>
-        </div>
+      {/* Features grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {features.map((feature, index) => (
+          <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white">
+            <CardContent className="p-6 text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <feature.icon className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-slate-800 mb-3">
+                {feature.title}
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                {feature.description}
+              </p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </section>
   );

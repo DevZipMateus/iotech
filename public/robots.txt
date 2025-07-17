@@ -1,0 +1,11 @@
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://iotech.dev/sitemap.xml
+
+# Disallow admin and private areas (when applicable)
+Disallow: /admin
+Disallow: /login
+Disallow: /private

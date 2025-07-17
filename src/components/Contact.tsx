@@ -1,256 +1,254 @@
 
-import React, { useEffect, useRef } from 'react';
-import { Phone, MapPin, Clock, MessageCircle, Mail, Award } from 'lucide-react';
-import ContactInfo from './contact/ContactInfo';
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { MapPin, Phone, Mail, Instagram, Send, Clock } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
-  const observerRef = useRef<IntersectionObserver | null>(null);
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const elementsRef = useRef<(HTMLElement | null)[]>([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  const { toast } = useToast();
 
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (entry.target === sectionRef.current) {
-              elementsRef.current.forEach((el, index) => {
-                if (el) {
-                  setTimeout(() => {
-                    el.classList.add('animate-slide-up');
-                  }, index * 100);
-                }
-              });
-            }
-            observerRef.current?.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Simulate form submission
+    toast({
+      title: "Mensagem enviada com sucesso!",
+      description: "Entraremos em contato em breve. Obrigado pelo interesse na Iotech.Dev!",
+    });
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    });
+  };
 
-    if (sectionRef.current) {
-      observerRef.current.observe(sectionRef.current);
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
-    return () => {
-      if (observerRef.current && sectionRef.current) {
-        observerRef.current.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const contactMethods = [
+  const contactInfo = [
     {
-      icon: <MessageCircle className="h-8 w-8" />,
-      title: "WhatsApp",
-      subtitle: "Resposta rápida",
-      info: "(11) 99988-7766",
-      description: "Atendimento instantâneo pelo WhatsApp. Envie fotos do problema e receba diagnóstico preliminar.",
-      action: "Solicitar Orçamento",
-      link: "https://wa.me/5555999887766?text=Olá!%20Preciso%20de%20um%20orçamento%20para%20reparo%20do%20meu%20equipamento.",
-      bgColor: "bg-green-600 hover:bg-green-700",
-      popular: true
+      icon: Phone,
+      title: 'Telefone',
+      value: '(47) 99172-4679',
+      link: 'tel:+554799172467'
     },
     {
-      icon: <Phone className="h-8 w-8" />,
-      title: "Telefone",
-      subtitle: "Atendimento direto",
-      info: "(11) 3333-4444",
-      description: "Ligue diretamente para nossa central de atendimento. Horário comercial de segunda a sábado.",
-      action: "Ligar para Orçamento",
-      link: "tel:+551133334444",
-      bgColor: "bg-red-600 hover:bg-red-700",
-      popular: false
+      icon: Mail,
+      title: 'E-mail',
+      value: 'contatoiotech.dev@gmail.com',
+      link: 'mailto:contatoiotech.dev@gmail.com'
     },
     {
-      icon: <Mail className="h-8 w-8" />,
-      title: "E-mail",
-      subtitle: "Suporte técnico",
-      info: "contato@techhelp.com.br",
-      description: "Envie detalhes do problema por e-mail. Resposta em até 2 horas no horário comercial.",
-      action: "Solicitar Orçamento",
-      link: "mailto:contato@techhelp.com.br?subject=Solicitação de Orçamento",
-      bgColor: "bg-black hover:bg-gray-800",
-      popular: false
+      icon: MapPin,
+      title: 'Endereço',
+      value: 'Av. Hermógenes Assis Feijó nº 399 Sala 11 – Barra',
+      subtitle: 'Balneário Camboriú/SC - CEP: 88330-005'
+    },
+    {
+      icon: Instagram,
+      title: 'Instagram',
+      value: '@iotech.oficial',
+      link: 'https://www.instagram.com/iotech.oficial/'
     }
-  ];
-
-  const businessHours = [
-    { day: "Segunda a Sexta", hours: "08:00 - 18:00" },
-    { day: "Sábado", hours: "08:00 - 12:00" },
-    { day: "Domingo", hours: "Fechado" }
   ];
 
   return (
-    <section id="contact" ref={sectionRef} className="py-24 bg-white relative">
-      <div className="section-container">
-        <div className="text-center mb-20">
-          <div 
-            ref={el => elementsRef.current[0] = el}
-            className="inline-block bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold mb-4 opacity-0"
-          >
-            CONTATO
-          </div>
-          <h2 
-            ref={el => elementsRef.current[1] = el}
-            className="text-4xl md:text-5xl font-black text-black mb-6 opacity-0"
-          >
-            Solicite Seu Orçamento
-            <br />
-            <span className="text-red-600">Sem Compromisso</span>
-          </h2>
-          <p 
-            ref={el => elementsRef.current[2] = el}
-            className="text-xl text-gray-600 max-w-3xl mx-auto opacity-0"
-          >
-            Entre em contato conosco através de diversos canais e receba um orçamento personalizado 
-            para o reparo do seu equipamento.
-          </p>
-        </div>
+    <section className="section-container bg-slate-50">
+      <div className="text-center mb-16">
+        <h2 className="section-title text-slate-800">
+          Entre em Contato
+        </h2>
+        <p className="section-subtitle text-slate-600">
+          Estamos prontos para transformar sua casa em um ambiente inteligente. Vamos conversar!
+        </p>
+      </div>
 
-        {/* Métodos de contato */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {contactMethods.map((method, index) => (
-            <div 
-              key={index}
-              ref={el => elementsRef.current[3 + index] = el}
-              className="relative bg-gray-50 rounded-2xl p-8 text-center opacity-0 hover:bg-white hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-red-100"
-            >
-              {method.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold">
-                  MAIS RÁPIDO
-                </div>
-              )}
-
-              <div className="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 text-red-600 shadow-lg">
-                {method.icon}
-              </div>
-              
-              <h3 className="text-black font-bold text-xl mb-2">
-                {method.title}
-              </h3>
-              
-              <p className="text-red-600 font-semibold text-sm mb-4">
-                {method.subtitle}
-              </p>
-
-              <div className="text-2xl font-bold text-black mb-4">
-                {method.info}
-              </div>
-              
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                {method.description}
-              </p>
-              
-              <a 
-                href={method.link}
-                target={method.link.startsWith('http') ? '_blank' : '_self'}
-                rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className={`inline-block w-full py-3 rounded-lg font-bold text-white transition-all duration-300 transform hover:scale-105 ${method.bgColor}`}
-              >
-                {method.action}
-              </a>
-            </div>
-          ))}
-        </div>
-
-        {/* Informações adicionais */}
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Localização e horários */}
-          <div 
-            ref={el => elementsRef.current[6] = el}
-            className="opacity-0"
-          >
-            <h3 className="text-3xl font-bold text-black mb-8">Localização & Horários</h3>
-            
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4 bg-gray-50 rounded-xl p-6">
-                <MapPin className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
+      <div className="grid lg:grid-cols-2 gap-12">
+        {/* Contact Form */}
+        <Card className="border-0 shadow-lg bg-white">
+          <CardHeader>
+            <CardTitle className="text-2xl font-semibold text-slate-800 flex items-center">
+              <Send className="h-6 w-6 text-cyan-600 mr-3" />
+              Solicite seu Orçamento
+            </CardTitle>
+            <p className="text-slate-600">
+              Preencha o formulário abaixo e entraremos em contato para agendar uma consultoria gratuita.
+            </p>
+          </CardHeader>
+          
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-bold text-black mb-2">Endereço</h4>
-                  <p className="text-gray-600">
-                    Rua da Tecnologia, 123 - Centro<br />
-                    São Paulo - SP, 01234-567
-                  </p>
-                  <a 
-                    href="https://maps.google.com/?q=Rua+da+Tecnologia+123+Centro+São+Paulo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-red-600 hover:text-red-700 font-semibold text-sm mt-2 inline-block"
-                  >
-                    Ver no Google Maps →
-                  </a>
+                  <Label htmlFor="name" className="text-slate-700">Nome *</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="mt-1"
+                    placeholder="Seu nome completo"
+                  />
+                </div>
+                
+                <div>
+                  <Label htmlFor="phone" className="text-slate-700">Telefone *</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="mt-1"
+                    placeholder="(00) 00000-0000"
+                  />
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-xl p-6">
-                <div className="flex items-center space-x-4 mb-4">
-                  <Clock className="h-6 w-6 text-red-600" />
-                  <h4 className="font-bold text-black">Horário de Funcionamento</h4>
+              <div>
+                <Label htmlFor="email" className="text-slate-700">E-mail *</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="mt-1"
+                  placeholder="seu.email@exemplo.com"
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="subject" className="text-slate-700">Assunto</Label>
+                <Input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="mt-1"
+                  placeholder="Automação residencial, consultoria, etc."
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="message" className="text-slate-700">Mensagem *</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="mt-1 min-h-[120px]"
+                  placeholder="Conte-nos sobre seu projeto e suas necessidades..."
+                />
+              </div>
+
+              <Button 
+                type="submit" 
+                size="lg" 
+                className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white"
+              >
+                <Send className="h-5 w-5 mr-2" />
+                Enviar Mensagem
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+
+        {/* Contact Information */}
+        <div className="space-y-6">
+          <Card className="border-0 shadow-lg bg-white">
+            <CardHeader>
+              <CardTitle className="text-2xl font-semibold text-slate-800">
+                Informações de Contato
+              </CardTitle>
+            </CardHeader>
+            
+            <CardContent className="space-y-6">
+              {contactInfo.map((info, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <info.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-slate-800 mb-1">{info.title}</h3>
+                    {info.link ? (
+                      <a 
+                        href={info.link} 
+                        className="text-cyan-600 hover:text-cyan-700 transition-colors"
+                        target={info.link.startsWith('http') ? '_blank' : undefined}
+                        rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <p className="text-slate-600">{info.value}</p>
+                    )}
+                    {info.subtitle && (
+                      <p className="text-sm text-slate-500 mt-1">{info.subtitle}</p>
+                    )}
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  {businessHours.map((schedule, idx) => (
-                    <div key={idx} className="flex justify-between items-center">
-                      <span className="text-gray-700">{schedule.day}</span>
-                      <span className="font-semibold text-black">{schedule.hours}</span>
-                    </div>
-                  ))}
+              ))}
+            </CardContent>
+          </Card>
+
+          {/* Business Hours */}
+          <Card className="border-0 shadow-lg bg-gradient-to-br from-cyan-50 to-blue-50">
+            <CardHeader>
+              <CardTitle className="text-xl font-semibold text-slate-800 flex items-center">
+                <Clock className="h-5 w-5 text-cyan-600 mr-3" />
+                Horário de Atendimento
+              </CardTitle>
+            </CardHeader>
+            
+            <CardContent>
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-slate-700">Segunda a Sexta</span>
+                  <span className="text-slate-600">08:00 - 18:00</span>
                 </div>
-                <div className="mt-4 p-3 bg-red-50 rounded-lg">
-                  <p className="text-red-800 text-sm font-medium">
-                    ⚡ Orçamentos via WhatsApp disponíveis 24h
-                  </p>
+                <div className="flex justify-between">
+                  <span className="text-slate-700">Sábado</span>
+                  <span className="text-slate-600">08:00 - 12:00</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-700">Domingo</span>
+                  <span className="text-slate-600">Fechado</span>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Formulário de contato */}
-          <div 
-            ref={el => elementsRef.current[7] = el}
-            className="opacity-0"
-          >
-            <ContactInfo setRef={() => {}} />
-          </div>
-        </div>
-
-        {/* Garantias e benefícios */}
-        <div 
-          ref={el => elementsRef.current[8] = el}
-          className="bg-black rounded-2xl p-12 text-center mt-20 opacity-0"
-        >
-          <Award className="h-12 w-12 text-red-500 mx-auto mb-6" />
-          <h3 className="text-white text-3xl font-bold mb-4">
-            Por Que Nos Escolher?
-          </h3>
-          <div className="grid md:grid-cols-3 gap-8 mt-8">
-            <div>
-              <div className="text-4xl font-bold text-red-500 mb-2">24h</div>
-              <div className="text-white font-semibold mb-2">Diagnóstico Rápido</div>
-              <div className="text-gray-300 text-sm">Identificamos o problema em até 24 horas</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-red-500 mb-2">90</div>
-              <div className="text-white font-semibold mb-2">Dias de Garantia</div>
-              <div className="text-gray-300 text-sm">Todos os serviços com garantia estendida</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-red-500 mb-2">15+</div>
-              <div className="text-white font-semibold mb-2">Anos de Experiência</div>
-              <div className="text-gray-300 text-sm">Especialistas em todas as marcas</div>
-            </div>
-          </div>
-          <div className="mt-8">
-            <a 
-              href="https://wa.me/5555999887766?text=Olá!%20Gostaria%20de%20um%20orçamento%20personalizado%20para%20meus%20equipamentos." 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105"
-            >
-              SOLICITAR ORÇAMENTO PERSONALIZADO
-            </a>
-          </div>
+              
+              <div className="mt-4 p-3 bg-cyan-100 rounded-lg">
+                <p className="text-sm text-cyan-800">
+                  <strong>Atendimento de emergência:</strong> Disponível 24h para clientes com sistemas instalados.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
