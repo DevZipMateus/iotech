@@ -14,11 +14,11 @@ import {
 } from 'lucide-react';
 
 const Services = () => {
+  const whatsappNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
+
   const scrollToContact = () => {
-    const element = document.getElementById('contato');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const message = 'Olá! Gostaria de solicitar uma consultoria gratuita sobre automação residencial da Iotech.Dev.';
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const services = [

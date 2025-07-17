@@ -8,6 +8,8 @@ const Plans = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
 
+  const whatsappNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
+
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -139,7 +141,8 @@ const Plans = () => {
                     : "bg-white hover:bg-gray-50 text-black border border-gray-300"
                 )}
                 onClick={() => {
-                  window.open('https://wa.me/5555999887766?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20o%20plano%20' + plan.name, '_blank');
+                  const message = `Olá! Gostaria de um orçamento para o plano ${plan.name} de automação residencial da Iotech.Dev.`;
+                  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
                 }}
               >
                 {plan.ctaText}

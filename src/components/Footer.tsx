@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Phone, Mail, Instagram } from 'lucide-react';
 
@@ -9,6 +8,9 @@ const Footer = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const whatsappNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
+  const whatsappMessage = 'Olá! Gostaria de mais informações sobre os serviços de automação residencial da Iotech.Dev.';
 
   const currentYear = new Date().getFullYear();
 
@@ -135,7 +137,9 @@ const Footer = () => {
                   <Phone className="h-5 w-5 text-cyan-400 flex-shrink-0" />
                 </div>
                 <a 
-                  href="tel:+554799172467" 
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-slate-300 hover:text-cyan-400 transition-colors"
                 >
                   (47) 99172-4679
@@ -147,7 +151,9 @@ const Footer = () => {
                   <Mail className="h-5 w-5 text-cyan-400 flex-shrink-0" />
                 </div>
                 <a 
-                  href="mailto:contatoiotech.dev@gmail.com" 
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-slate-300 hover:text-cyan-400 transition-colors break-all"
                 >
                   contatoiotech.dev@gmail.com
@@ -159,8 +165,8 @@ const Footer = () => {
                   <Instagram className="h-5 w-5 text-cyan-400 flex-shrink-0" />
                 </div>
                 <a 
-                  href="https://www.instagram.com/iotech.oficial/" 
-                  target="_blank" 
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-cyan-400 transition-colors"
                 >

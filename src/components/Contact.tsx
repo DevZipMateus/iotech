@@ -18,23 +18,23 @@ const Contact = () => {
   });
   const { toast } = useToast();
 
+  const whatsappNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
+  const whatsappMessage = 'Olá! Gostaria de mais informações sobre os serviços de automação residencial da Iotech.Dev.';
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
-    toast({
-      title: "Mensagem enviada com sucesso!",
-      description: "Entraremos em contato em breve. Obrigado pelo interesse na Iotech.Dev!",
-    });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    // Redirecionar para WhatsApp em vez de simular envio
+    const personalizedMessage = `Olá! Gostaria de mais informações sobre os serviços de automação residencial da Iotech.Dev.
+
+Nome: ${formData.name}
+Email: ${formData.email}
+Telefone: ${formData.phone}
+Assunto: ${formData.subject || 'Consulta geral'}
+Mensagem: ${formData.message}`;
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(personalizedMessage)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -49,13 +49,13 @@ const Contact = () => {
       icon: Phone,
       title: 'Telefone',
       value: '(47) 99172-4679',
-      link: 'tel:+554799172467'
+      link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     },
     {
       icon: Mail,
       title: 'E-mail',
       value: 'contatoiotech.dev@gmail.com',
-      link: 'mailto:contatoiotech.dev@gmail.com'
+      link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     },
     {
       icon: MapPin,
@@ -67,7 +67,7 @@ const Contact = () => {
       icon: Instagram,
       title: 'Instagram',
       value: '@iotech.oficial',
-      link: 'https://www.instagram.com/iotech.oficial/'
+      link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     }
   ];
 
@@ -200,8 +200,8 @@ const Contact = () => {
                       <a 
                         href={info.link} 
                         className="text-cyan-600 hover:text-cyan-700 transition-colors"
-                        target={info.link.startsWith('http') ? '_blank' : undefined}
-                        rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {info.value}
                       </a>

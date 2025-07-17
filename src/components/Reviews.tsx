@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Star, Quote, CheckCircle, Users } from 'lucide-react';
 
@@ -6,6 +5,8 @@ const Reviews = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const sectionRef = useRef<HTMLElement | null>(null);
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
+
+  const whatsappNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -227,7 +228,7 @@ const Reviews = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <a 
-              href="https://wa.me/5555999887766?text=Olá!%20Vi%20os%20depoimentos%20e%20gostaria%20de%20um%20orçamento." 
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá! Vi os depoimentos e gostaria de um orçamento para automação residencial da Iotech.Dev.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold transition-all duration-300 transform hover:scale-105"
@@ -237,7 +238,8 @@ const Reviews = () => {
             <button 
               className="bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-lg font-bold transition-all duration-300"
               onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                const message = 'Olá! Gostaria de falar sobre os serviços de automação residencial da Iotech.Dev.';
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
               }}
             >
               FALAR CONOSCO
