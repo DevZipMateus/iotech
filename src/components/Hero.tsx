@@ -27,38 +27,6 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse animation-delay-500"></div>
       </div>
 
-      {/* Central silver pulsing circle with logo */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative">
-          {/* Main silver circle with glow effect */}
-          <div className="w-80 h-80 bg-gradient-to-br from-silver-200/30 to-silver-400/20 rounded-full animate-silver-glow backdrop-blur-sm border border-silver-300/40"></div>
-          
-          {/* Inner silver circle */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-silver-100/20 to-silver-300/30 rounded-full animate-pulse border border-silver-200/30"></div>
-          
-          {/* Logo container */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 backdrop-blur-md rounded-full p-12 border border-cyan-400/30 flex items-center justify-center">
-            <img 
-              src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
-              alt="Iotech.Dev - Automação Residencial Inteligente" 
-              className="h-32 w-auto"
-            />
-          </div>
-          
-          {/* Floating connection nodes */}
-          <div className="absolute top-8 left-8 w-6 h-6 bg-silver-300/60 rounded-full animate-pulse"></div>
-          <div className="absolute top-8 right-8 w-4 h-4 bg-silver-400/50 rounded-full animate-pulse animation-delay-300"></div>
-          <div className="absolute bottom-8 left-8 w-4 h-4 bg-silver-200/70 rounded-full animate-pulse animation-delay-500"></div>
-          <div className="absolute bottom-8 right-8 w-6 h-6 bg-silver-300/60 rounded-full animate-pulse animation-delay-700"></div>
-          
-          {/* Outer silver pulse rings */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-96 h-96 border border-silver-300/20 rounded-full absolute -inset-8 animate-ping animation-delay-1000"></div>
-            <div className="w-[28rem] h-[28rem] border border-silver-200/15 rounded-full absolute -inset-14 animate-ping animation-delay-1500"></div>
-          </div>
-        </div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Content */}
@@ -116,8 +84,31 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right column - Empty space for better visual balance */}
-          <div className="hidden lg:block"></div>
+          {/* Right column - Logo element */}
+          <div className="relative lg:flex justify-center items-center hidden">
+            <div className="relative w-full max-w-lg">
+              {/* Central logo with effects */}
+              <div className="relative bg-gradient-to-br from-cyan-400/20 to-blue-600/20 backdrop-blur-md rounded-full p-16 border border-cyan-400/30 flex items-center justify-center">
+                <img 
+                  src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
+                  alt="Iotech.Dev - Automação Residencial Inteligente" 
+                  className="h-32 w-auto"
+                />
+                
+                {/* Floating connection nodes */}
+                <div className="absolute -top-4 -left-4 w-8 h-8 bg-cyan-400 rounded-full animate-pulse"></div>
+                <div className="absolute -top-4 -right-4 w-6 h-6 bg-blue-500 rounded-full animate-pulse animation-delay-300"></div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-cyan-300 rounded-full animate-pulse animation-delay-500"></div>
+                <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-blue-400 rounded-full animate-pulse animation-delay-700"></div>
+                
+                {/* Connection lines */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-96 h-96 border border-cyan-400/20 rounded-full absolute -inset-32 animate-ping animation-delay-1000"></div>
+                  <div className="w-80 h-80 border border-blue-400/30 rounded-full absolute -inset-24 animate-ping animation-delay-1500"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
