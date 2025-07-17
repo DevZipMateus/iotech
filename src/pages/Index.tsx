@@ -95,7 +95,7 @@ const Index = () => {
 
   return (
     <ClickSpark
-      sparkColor="#C0C0C0"
+      sparkColor="#00BFFF"
       sparkSize={14}
       sparkRadius={22}
       sparkCount={8}
@@ -104,31 +104,31 @@ const Index = () => {
       extraScale={1.3}
     >
       <main className="min-h-screen flex flex-col antialiased overflow-x-hidden relative bg-gradient-to-br from-slate-50 to-blue-50">
-        {/* Floating elements with parallax e efeitos prateados */}
+        {/* Floating elements with parallax */}
         <div 
-          className="fixed top-20 left-10 w-3 h-3 bg-gradient-to-br from-cyan-400/30 to-silver-300/40 rounded-full animate-float -z-10 animate-silver-pulse"
+          className="fixed top-20 left-10 w-3 h-3 bg-cyan-400/30 rounded-full animate-float -z-10"
           style={getParallaxStyle(0.1)}
         ></div>
         <div 
-          className="fixed top-32 right-16 w-2 h-2 bg-gradient-to-br from-blue-600/20 to-silver-400/30 rounded-full animate-float animation-delay-500 -z-10"
+          className="fixed top-32 right-16 w-2 h-2 bg-blue-600/20 rounded-full animate-float animation-delay-500 -z-10"
           style={getParallaxStyle(0.15)}
         ></div>
         <div 
-          className="fixed bottom-32 left-20 w-4 h-4 bg-gradient-to-br from-cyan-300/25 to-silver-200/35 rounded-full animate-float animation-delay-300 -z-10 animate-silver-pulse"
+          className="fixed bottom-32 left-20 w-4 h-4 bg-cyan-300/25 rounded-full animate-float animation-delay-300 -z-10"
           style={getParallaxStyle(0.25)}
         ></div>
         <div 
-          className="fixed top-1/2 right-8 w-1.5 h-1.5 bg-silver-300/50 rounded-full animate-float animation-delay-700 -z-10"
+          className="fixed top-1/2 right-8 w-1.5 h-1.5 bg-blue-500/40 rounded-full animate-float animation-delay-700 -z-10"
           style={getParallaxStyle(0.2)}
         ></div>
         <div 
-          className="fixed bottom-1/4 left-8 w-2.5 h-2.5 bg-gradient-to-br from-silver-200/40 to-cyan-400/30 rounded-full animate-float animation-delay-1000 -z-10"
+          className="fixed bottom-1/4 left-8 w-2.5 h-2.5 bg-cyan-400/30 rounded-full animate-float animation-delay-1000 -z-10"
           style={getParallaxStyle(0.18)}
         ></div>
         
-        {/* Elementos decorativos prateados adicionais */}
-        <div className="fixed top-1/3 left-1/4 w-6 h-6 bg-gradient-to-br from-silver-100/20 to-silver-300/30 rounded-full animate-float animation-delay-600 -z-10 blur-sm"></div>
-        <div className="fixed bottom-1/3 right-1/4 w-5 h-5 bg-gradient-to-br from-silver-200/25 to-silver-400/35 rounded-full animate-float animation-delay-800 -z-10 blur-sm"></div>
+        {/* Elementos decorativos adicionais */}
+        <div className="fixed top-1/3 left-1/4 w-6 h-6 bg-blue-400/20 rounded-full animate-float animation-delay-600 -z-10 blur-sm"></div>
+        <div className="fixed bottom-1/3 right-1/4 w-5 h-5 bg-cyan-500/25 rounded-full animate-float animation-delay-800 -z-10 blur-sm"></div>
         
         <NavBar />
         <Hero />

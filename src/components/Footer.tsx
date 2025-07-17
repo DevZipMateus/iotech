@@ -14,21 +14,12 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 text-white pt-14 pb-8 relative z-10 overflow-hidden">
-      {/* Efeito prateado superior */}
-      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-silver-300 to-transparent opacity-40"></div>
-      
-      {/* Overlay prateado sofisticado */}
-      <div className="absolute inset-0 bg-gradient-to-br from-silver-100/5 via-transparent to-silver-200/8 pointer-events-none"></div>
-      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
         <div className="grid md:grid-cols-3 gap-8 mb-10">
           {/* Company Info */}
           <div className="relative">
-            {/* Efeito prateado decorativo */}
-            <div className="absolute -top-2 -left-2 w-24 h-24 bg-gradient-to-br from-silver-200/10 to-silver-400/20 rounded-full blur-xl"></div>
-            
             <div className="flex items-center space-x-3 mb-6 relative z-10">
-              <div className="silver-accent">
+              <div>
                 <img 
                   src="/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png" 
                   alt="Iotech.Dev" 
@@ -40,7 +31,7 @@ const Footer = () => {
               Transformamos sua casa em um ambiente inteligente com soluções personalizadas 
               de automação residencial. Qualidade, inovação e tecnologia premium.
             </p>
-            <p className="text-cyan-400 font-medium relative z-10 metallic-text">
+            <p className="text-cyan-400 font-medium relative z-10">
               "Personalizado para você, projetado para o futuro."
             </p>
           </div>
@@ -49,7 +40,7 @@ const Footer = () => {
           <div className="relative">
             <h3 className="font-semibold text-lg mb-4 text-white relative">
               <span className="relative z-10">Navegação</span>
-              <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-silver-300 to-cyan-400"></div>
+              <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600"></div>
             </h3>
             <ul className="space-y-2">
               <li>
@@ -62,7 +53,7 @@ const Footer = () => {
                   }}
                 >
                   <span className="relative z-10">Início</span>
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-silver-300 to-cyan-400 group-hover:w-full transition-all duration-300"></div>
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 group-hover:w-full transition-all duration-300"></div>
                 </a>
               </li>
               <li>
@@ -75,7 +66,7 @@ const Footer = () => {
                   }}
                 >
                   <span className="relative z-10">Sobre Nós</span>
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-silver-300 to-cyan-400 group-hover:w-full transition-all duration-300"></div>
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 group-hover:w-full transition-all duration-300"></div>
                 </a>
               </li>
               <li>
@@ -88,7 +79,7 @@ const Footer = () => {
                   }}
                 >
                   <span className="relative z-10">Serviços</span>
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-silver-300 to-cyan-400 group-hover:w-full transition-all duration-300"></div>
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 group-hover:w-full transition-all duration-300"></div>
                 </a>
               </li>
               <li>
@@ -101,7 +92,7 @@ const Footer = () => {
                   }}
                 >
                   <span className="relative z-10">Localização</span>
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-silver-300 to-cyan-400 group-hover:w-full transition-all duration-300"></div>
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 group-hover:w-full transition-all duration-300"></div>
                 </a>
               </li>
               <li>
@@ -114,7 +105,7 @@ const Footer = () => {
                   }}
                 >
                   <span className="relative z-10">Contato</span>
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-silver-300 to-cyan-400 group-hover:w-full transition-all duration-300"></div>
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 group-hover:w-full transition-all duration-300"></div>
                 </a>
               </li>
             </ul>
@@ -124,11 +115,11 @@ const Footer = () => {
           <div className="relative">
             <h3 className="font-semibold text-lg mb-4 text-white relative">
               <span className="relative z-10">Contato</span>
-              <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-silver-300 to-cyan-400"></div>
+              <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600"></div>
             </h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3 group">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-silver-200/20 to-silver-400/30 flex items-center justify-center group-hover:animate-silver-pulse">
+                <div className="w-8 h-8 rounded-full bg-cyan-600/20 flex items-center justify-center">
                   <MapPin className="h-5 w-5 text-cyan-400 mt-0.5 flex-shrink-0" />
                 </div>
                 <div className="text-slate-300 text-sm">
@@ -140,7 +131,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-center space-x-3 group">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-silver-200/20 to-silver-400/30 flex items-center justify-center group-hover:animate-silver-pulse">
+                <div className="w-8 h-8 rounded-full bg-cyan-600/20 flex items-center justify-center">
                   <Phone className="h-5 w-5 text-cyan-400 flex-shrink-0" />
                 </div>
                 <a 
@@ -152,7 +143,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-center space-x-3 group">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-silver-200/20 to-silver-400/30 flex items-center justify-center group-hover:animate-silver-pulse">
+                <div className="w-8 h-8 rounded-full bg-cyan-600/20 flex items-center justify-center">
                   <Mail className="h-5 w-5 text-cyan-400 flex-shrink-0" />
                 </div>
                 <a 
@@ -164,7 +155,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-center space-x-3 group">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-silver-200/20 to-silver-400/30 flex items-center justify-center group-hover:animate-silver-pulse">
+                <div className="w-8 h-8 rounded-full bg-cyan-600/20 flex items-center justify-center">
                   <Instagram className="h-5 w-5 text-cyan-400 flex-shrink-0" />
                 </div>
                 <a 
@@ -180,23 +171,15 @@ const Footer = () => {
           </div>
         </div>
         
-        <hr className="border-gradient-to-r from-transparent via-silver-400/30 to-transparent mb-8" style={{
-          borderImage: 'linear-gradient(90deg, transparent, hsl(210, 12%, 68%), transparent) 1'
-        }} />
+        <hr className="border-slate-600 mb-8" />
         
         <div className="flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm relative">
-          {/* Efeito prateado decorativo */}
-          <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-gradient-to-r from-silver-200/5 via-silver-300/10 to-silver-200/5 rounded-full blur-sm"></div>
-          
           <p className="relative z-10">&copy; {currentYear} Iotech.Dev - Todos os direitos reservados.</p>
           <p className="mt-2 md:mt-0 relative z-10">
             Desenvolvido com tecnologia e inovação em Santa Catarina
           </p>
         </div>
       </div>
-      
-      {/* Efeito prateado inferior */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-silver-300 to-transparent opacity-40"></div>
     </footer>
   );
 };

@@ -68,29 +68,20 @@ const Services = () => {
 
   return (
     <section className="section-container section-bg-main relative">
-      {/* Efeito prateado decorativo */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-silver-300 to-transparent opacity-60"></div>
-      
       <div className="text-center mb-16 relative">
-        <h2 className="section-title text-white silver-accent">
+        <h2 className="section-title text-white">
           Nossos Serviços
         </h2>
         <p className="section-subtitle text-white/80">
           Soluções completas em automação residencial para transformar sua casa em um ambiente inteligente
         </p>
-        
-        {/* Elemento decorativo prateado */}
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-gradient-to-br from-silver-200 to-silver-400 rounded-full opacity-10 animate-silver-pulse"></div>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {services.map((service, index) => (
-          <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white group silver-accent silver-border relative overflow-hidden">
-            {/* Efeito shimmer prateado */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-silver-100/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            
+          <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white group relative overflow-hidden">
             <CardHeader className="text-center pb-4 relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 silver-glow">
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <service.icon className="h-8 w-8 text-white" />
               </div>
               <CardTitle className="text-xl font-semibold text-slate-800 group-hover:text-cyan-600 transition-colors">
@@ -108,7 +99,7 @@ const Services = () => {
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-sm text-slate-600">
-                      <div className="w-1.5 h-1.5 bg-gradient-to-r from-cyan-500 to-silver-400 rounded-full mr-3 animate-silver-pulse"></div>
+                      <div className="w-1.5 h-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mr-3"></div>
                       {feature}
                     </li>
                   ))}
@@ -119,12 +110,8 @@ const Services = () => {
         ))}
       </div>
 
-      {/* Call to action com efeito prateado */}
       <div className="text-center relative">
-        <div className="bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 rounded-2xl p-8 text-white relative overflow-hidden silver-border">
-          {/* Overlay prateado sofisticado */}
-          <div className="absolute inset-0 bg-gradient-to-br from-silver-100/10 via-transparent to-silver-200/10 pointer-events-none"></div>
-          
+        <div className="bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 rounded-2xl p-8 text-white relative overflow-hidden">
           <h3 className="text-2xl lg:text-3xl font-semibold mb-4 relative z-10">
             Pronto para transformar sua casa?
           </h3>
@@ -133,21 +120,14 @@ const Services = () => {
           </p>
           <Button 
             size="lg" 
-            className="bg-white text-cyan-600 hover:bg-silver-50 px-8 py-6 text-lg font-semibold silver-border hover:silver-glow transition-all duration-300 relative z-10"
+            className="bg-white text-cyan-600 hover:bg-gray-50 px-8 py-6 text-lg font-semibold transition-all duration-300 relative z-10"
             onClick={scrollToContact}
           >
             Solicitar Consultoria Gratuita
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          
-          {/* Elementos decorativos prateados */}
-          <div className="absolute top-4 right-4 w-3 h-3 bg-silver-300 rounded-full opacity-30 animate-float"></div>
-          <div className="absolute bottom-4 left-4 w-2 h-2 bg-silver-400 rounded-full opacity-40 animate-float animation-delay-500"></div>
         </div>
       </div>
-      
-      {/* Linha decorativa inferior */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-silver-300 to-transparent opacity-60"></div>
     </section>
   );
 };
