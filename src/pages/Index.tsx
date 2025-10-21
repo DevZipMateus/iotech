@@ -104,31 +104,31 @@ const Index = () => {
       extraScale={1.3}
     >
       <main className="min-h-screen flex flex-col antialiased overflow-x-hidden relative bg-gradient-to-br from-slate-50 to-blue-50">
-        {/* Floating elements with parallax */}
+        {/* Floating elements with parallax - hidden on mobile for performance */}
         <div 
-          className="fixed top-20 left-10 w-3 h-3 bg-cyan-400/30 rounded-full animate-float -z-10"
+          className="fixed top-20 left-10 w-3 h-3 bg-cyan-400/30 rounded-full animate-float -z-10 hidden md:block"
           style={getParallaxStyle(0.1)}
         ></div>
         <div 
-          className="fixed top-32 right-16 w-2 h-2 bg-blue-600/20 rounded-full animate-float animation-delay-500 -z-10"
+          className="fixed top-32 right-16 w-2 h-2 bg-blue-600/20 rounded-full animate-float animation-delay-500 -z-10 hidden md:block"
           style={getParallaxStyle(0.15)}
         ></div>
         <div 
-          className="fixed bottom-32 left-20 w-4 h-4 bg-cyan-300/25 rounded-full animate-float animation-delay-300 -z-10"
+          className="fixed bottom-32 left-20 w-4 h-4 bg-cyan-300/25 rounded-full animate-float animation-delay-300 -z-10 hidden lg:block"
           style={getParallaxStyle(0.25)}
         ></div>
         <div 
-          className="fixed top-1/2 right-8 w-1.5 h-1.5 bg-blue-500/40 rounded-full animate-float animation-delay-700 -z-10"
+          className="fixed top-1/2 right-8 w-1.5 h-1.5 bg-blue-500/40 rounded-full animate-float animation-delay-700 -z-10 hidden md:block"
           style={getParallaxStyle(0.2)}
         ></div>
         <div 
-          className="fixed bottom-1/4 left-8 w-2.5 h-2.5 bg-cyan-400/30 rounded-full animate-float animation-delay-1000 -z-10"
+          className="fixed bottom-1/4 left-8 w-2.5 h-2.5 bg-cyan-400/30 rounded-full animate-float animation-delay-1000 -z-10 hidden lg:block"
           style={getParallaxStyle(0.18)}
         ></div>
         
-        {/* Elementos decorativos adicionais */}
-        <div className="fixed top-1/3 left-1/4 w-6 h-6 bg-blue-400/20 rounded-full animate-float animation-delay-600 -z-10 blur-sm"></div>
-        <div className="fixed bottom-1/3 right-1/4 w-5 h-5 bg-cyan-500/25 rounded-full animate-float animation-delay-800 -z-10 blur-sm"></div>
+        {/* Elementos decorativos adicionais - only visible on larger screens */}
+        <div className="fixed top-1/3 left-1/4 w-6 h-6 bg-blue-400/20 rounded-full animate-float animation-delay-600 -z-10 blur-sm hidden lg:block"></div>
+        <div className="fixed bottom-1/3 right-1/4 w-5 h-5 bg-cyan-500/25 rounded-full animate-float animation-delay-800 -z-10 blur-sm hidden lg:block"></div>
         
         <NavBar />
         <Hero />

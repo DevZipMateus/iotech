@@ -11,7 +11,7 @@ const LocationMap = () => {
 
   return (
     <section className="section-container section-bg-main">
-      <div className="text-center mb-16">
+      <div className="text-center mb-10 sm:mb-12 md:mb-16 px-4">
         <h2 className="section-title text-white">
           Nossa Localização
         </h2>
@@ -20,11 +20,11 @@ const LocationMap = () => {
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left column - Map */}
-        <div className="order-2 lg:order-1">
+        <div className="order-2 lg:order-1 px-4">
           <Card className="border-0 shadow-lg overflow-hidden bg-white/90 backdrop-blur-sm">
-            <div className="relative h-96 bg-slate-200">
+            <div className="relative h-64 sm:h-80 md:h-96 bg-slate-200">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1855555555555!2d-48.60128700000001!3d-27.0111341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d8b6ffa374819b%3A0x50c404b3634ff74b!2sBarra%20Mall%20-%20Av.%20Herm%C3%B3genes%20Assis%20Feij%C3%B3%2C%20399%20-%2011%20-%20Barra%2C%20Balne%C3%A1rio%20Cambori%C3%BA%20-%20SC%2C%2088330-005!5e0!3m2!1spt-BR!2sbr!4v1000000000000!5m2!1spt-BR!2sbr"
                 width="100%"
@@ -41,15 +41,15 @@ const LocationMap = () => {
         </div>
 
         {/* Right column - Location Info */}
-        <div className="order-1 lg:order-2">
-          <div className="space-y-6">
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                <MapPin className="h-6 w-6 text-white" />
+        <div className="order-1 lg:order-2 px-4">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="flex items-start space-x-3 sm:space-x-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-semibold text-white mb-2">Endereço Completo</h3>
-                <p className="text-lg text-white/80 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">Endereço Completo</h3>
+                <p className="text-base sm:text-lg text-white/80 leading-relaxed">
                   Av. Hermógenes Assis Feijó nº 399<br />
                   Sala 11 – Barra<br />
                   Balneário Camboriú/SC<br />
@@ -58,16 +58,16 @@ const LocationMap = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 p-6 rounded-lg border-l-4 border-cyan-400 backdrop-blur-sm">
-              <h4 className="font-semibold text-white mb-3">Localização Estratégica</h4>
-              <p className="text-white/80 leading-relaxed">
+            <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 p-4 sm:p-6 rounded-lg border-l-4 border-cyan-400 backdrop-blur-sm">
+              <h4 className="font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base">Localização Estratégica</h4>
+              <p className="text-white/80 leading-relaxed text-sm sm:text-base">
                 Estamos localizados no coração de Balneário Camboriú, em uma região de fácil acesso 
                 e com estacionamento disponível. Nossa sede no Barra Mall oferece comodidade e 
                 facilidade para nossos clientes.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <Card className="border border-cyan-400/30 bg-white/10 backdrop-blur-sm">
                 <CardContent className="p-4 text-center">
                   <div className="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center mx-auto mb-2">

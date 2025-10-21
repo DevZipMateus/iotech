@@ -41,7 +41,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ setRef }) => {
   return (
     <form 
       onSubmit={handleSubmit}
-      className="bg-white p-8 rounded-lg shadow-sm opacity-0"
+      className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-sm opacity-0"
       ref={setRef}
     >
       <div className="space-y-5">

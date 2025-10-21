@@ -73,7 +73,7 @@ Mensagem: ${formData.message}`;
 
   return (
     <section className="section-container section-bg-main">
-      <div className="text-center mb-16">
+      <div className="text-center mb-10 sm:mb-12 md:mb-16 px-4">
         <h2 className="section-title text-white">
           Entre em Contato
         </h2>
@@ -82,22 +82,22 @@ Mensagem: ${formData.message}`;
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-12">
+      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
         {/* Contact Form */}
         <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl font-semibold text-slate-800 flex items-center">
-              <Send className="h-6 w-6 text-cyan-600 mr-3" />
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="text-xl sm:text-2xl font-semibold text-slate-800 flex items-center">
+              <Send className="h-5 w-5 sm:h-6 sm:w-6 text-cyan-600 mr-2 sm:mr-3" />
               Solicite seu Orçamento
             </CardTitle>
-            <p className="text-slate-600">
+            <p className="text-sm sm:text-base text-slate-600">
               Preencha o formulário abaixo e entraremos em contato para agendar uma consultoria gratuita.
             </p>
           </CardHeader>
           
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
+          <CardContent className="p-4 sm:p-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <Label htmlFor="name" className="text-slate-700">Nome *</Label>
                   <Input
@@ -180,36 +180,36 @@ Mensagem: ${formData.message}`;
         </Card>
 
         {/* Contact Information */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-2xl font-semibold text-slate-800">
+            <CardHeader className="p-4 sm:p-6">
+              <CardTitle className="text-xl sm:text-2xl font-semibold text-slate-800">
                 Informações de Contato
               </CardTitle>
             </CardHeader>
             
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-4 sm:space-y-6 p-4 sm:p-6">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <info.icon className="h-6 w-6 text-white" />
+                <div key={index} className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <info.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-slate-800 mb-1">{info.title}</h3>
+                    <h3 className="font-semibold text-slate-800 mb-1 text-sm sm:text-base">{info.title}</h3>
                     {info.link ? (
                       <a 
                         href={info.link} 
-                        className="text-cyan-600 hover:text-cyan-700 transition-colors"
+                        className="text-cyan-600 hover:text-cyan-700 transition-colors text-sm sm:text-base break-words"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-slate-600">{info.value}</p>
+                      <p className="text-slate-600 text-sm sm:text-base">{info.value}</p>
                     )}
                     {info.subtitle && (
-                      <p className="text-sm text-slate-500 mt-1">{info.subtitle}</p>
+                      <p className="text-xs sm:text-sm text-slate-500 mt-1">{info.subtitle}</p>
                     )}
                   </div>
                 </div>
@@ -219,30 +219,30 @@ Mensagem: ${formData.message}`;
 
           {/* Business Hours */}
           <Card className="border-0 shadow-lg bg-white/10 backdrop-blur-sm border-white/20">
-            <CardHeader>
-              <CardTitle className="text-xl font-semibold text-white flex items-center">
-                <Clock className="h-5 w-5 text-cyan-400 mr-3" />
+            <CardHeader className="p-4 sm:p-6">
+              <CardTitle className="text-lg sm:text-xl font-semibold text-white flex items-center">
+                <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-400 mr-2 sm:mr-3" />
                 Horário de Atendimento
               </CardTitle>
             </CardHeader>
             
-            <CardContent>
+            <CardContent className="p-4 sm:p-6">
               <div className="space-y-2">
-                <div className="flex justify-between">
+                <div className="flex justify-between text-sm sm:text-base">
                   <span className="text-white/90">Segunda a Sexta</span>
                   <span className="text-white/80">08:00 - 18:00</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between text-sm sm:text-base">
                   <span className="text-white/90">Sábado</span>
                   <span className="text-white/80">08:00 - 12:00</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between text-sm sm:text-base">
                   <span className="text-white/90">Domingo</span>
                   <span className="text-white/80">Fechado</span>
                 </div>
               </div>
               
-              <div className="mt-4 p-3 bg-cyan-500/20 rounded-lg border border-cyan-400/30">
+              <div className="mt-3 sm:mt-4 p-2.5 sm:p-3 bg-cyan-500/20 rounded-lg border border-cyan-400/30">
                 <p className="text-sm text-cyan-200">
                   <strong>Atendimento de emergência:</strong> Disponível 24h para clientes com sistemas instalados.
                 </p>

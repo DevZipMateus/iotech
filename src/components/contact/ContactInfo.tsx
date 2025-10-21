@@ -39,11 +39,11 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ setRef }) => {
 
   return (
     <div 
-      className="space-y-8 opacity-0 bg-white p-8 rounded-lg shadow-sm"
+      className="space-y-6 sm:space-y-8 opacity-0 bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-sm"
       ref={setRef}
     >
-      <div className="text-center mb-6">
-        <p className="text-accounting-navy font-medium">
+      <div className="text-center mb-4 sm:mb-6">
+        <p className="text-accounting-navy font-medium text-sm sm:text-base">
           Para sua comodidade, disponibilizamos atendimento exclusivamente através dos seguintes canais de comunicação:
         </p>
       </div>

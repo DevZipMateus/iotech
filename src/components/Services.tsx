@@ -68,7 +68,7 @@ const Services = () => {
 
   return (
     <section className="section-container section-bg-main relative">
-      <div className="text-center mb-16 relative">
+      <div className="text-center mb-10 sm:mb-12 md:mb-16 relative px-4">
         <h2 className="section-title text-white">
           Nossos Serviços
         </h2>
@@ -77,7 +77,7 @@ const Services = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
         {services.map((service, index) => (
           <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white group relative overflow-hidden">
             <CardHeader className="text-center pb-4 relative z-10">
@@ -111,20 +111,20 @@ const Services = () => {
       </div>
 
       <div className="text-center relative">
-        <div className="bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 rounded-2xl p-8 text-white relative overflow-hidden">
-          <h3 className="text-2xl lg:text-3xl font-semibold mb-4 relative z-10">
+        <div className="bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-3 sm:mb-4 relative z-10">
             Pronto para transformar sua casa?
           </h3>
-          <p className="text-lg text-cyan-100 mb-6 max-w-2xl mx-auto relative z-10">
+          <p className="text-base sm:text-lg text-cyan-100 mb-5 sm:mb-6 max-w-2xl mx-auto relative z-10">
             Entre em contato conosco e descubra como podemos criar a solução perfeita para seu lar.
           </p>
           <Button 
             size="lg" 
-            className="bg-white text-cyan-600 hover:bg-gray-50 px-8 py-6 text-lg font-semibold transition-all duration-300 relative z-10"
+            className="bg-white text-cyan-600 hover:bg-gray-50 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg font-semibold transition-all duration-300 relative z-10"
             onClick={scrollToContact}
           >
             Solicitar Consultoria Gratuita
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
         </div>
       </div>

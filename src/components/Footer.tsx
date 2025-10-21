@@ -15,9 +15,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 text-white pt-14 pb-8 relative z-10 overflow-hidden">
+    <footer className="bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 text-white pt-10 sm:pt-12 md:pt-14 pb-6 sm:pb-8 relative z-10 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
-        <div className="grid md:grid-cols-3 gap-8 mb-10">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10">
           {/* Company Info */}
           <div className="relative">
             <div className="flex items-center space-x-3 mb-6 relative z-10">
@@ -29,18 +29,18 @@ const Footer = () => {
                 />
               </div>
             </div>
-            <p className="text-slate-300 mb-4 max-w-sm leading-relaxed relative z-10">
+            <p className="text-slate-300 mb-3 sm:mb-4 max-w-sm leading-relaxed relative z-10 text-sm sm:text-base">
               Transformamos sua casa em um ambiente inteligente com soluções personalizadas 
               de automação residencial. Qualidade, inovação e tecnologia premium.
             </p>
-            <p className="text-cyan-400 font-medium relative z-10">
+            <p className="text-cyan-400 font-medium relative z-10 text-sm sm:text-base">
               "Personalizado para você, projetado para o futuro."
             </p>
           </div>
           
           {/* Navigation */}
           <div className="relative">
-            <h3 className="font-semibold text-lg mb-4 text-white relative">
+            <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4 text-white relative">
               <span className="relative z-10">Navegação</span>
               <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600"></div>
             </h3>
@@ -114,8 +114,8 @@ const Footer = () => {
           </div>
           
           {/* Contact Info */}
-          <div className="relative">
-            <h3 className="font-semibold text-lg mb-4 text-white relative">
+          <div className="relative sm:col-span-2 md:col-span-1">
+            <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4 text-white relative">
               <span className="relative z-10">Contato</span>
               <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600"></div>
             </h3>

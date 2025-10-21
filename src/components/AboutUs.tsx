@@ -29,7 +29,7 @@ const AboutUs = () => {
 
   return (
     <section className="section-container section-bg-main">
-      <div className="text-center mb-16">
+      <div className="text-center mb-10 sm:mb-12 md:mb-16 px-4">
         <h2 className="section-title text-white">
           Sobre a Iotech.Dev
         </h2>
@@ -38,29 +38,29 @@ const AboutUs = () => {
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-10 sm:mb-12 md:mb-16">
         {/* Left column - Content */}
-        <div className="order-2 lg:order-1">
-          <div className="space-y-6">
-            <h3 className="text-2xl lg:text-3xl font-light text-white mb-6">
+        <div className="order-2 lg:order-1 px-4">
+          <div className="space-y-4 sm:space-y-6">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-white mb-4 sm:mb-6">
               Liderando o Futuro da 
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-medium">
                 {' '}Automação Residencial
               </span>
             </h3>
             
-            <p className="text-lg text-white/80 leading-relaxed">
+            <p className="text-base sm:text-lg text-white/80 leading-relaxed">
               A Iotech.Dev se destaca pela <strong>fabricação própria</strong> de produtos de automação residencial inteligente, 
               garantindo controle total sobre a qualidade e inovação de nossas soluções.
             </p>
             
-            <p className="text-lg text-white/80 leading-relaxed">
+            <p className="text-base sm:text-lg text-white/80 leading-relaxed">
               Nosso foco está em criar <strong>soluções personalizadas e integradas</strong> para iluminação, climatização, 
               segurança, entretenimento e controle de acesso, proporcionando uma experiência premium para nossos clientes.
             </p>
             
-            <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 p-6 rounded-lg border-l-4 border-cyan-400">
-              <p className="text-lg font-medium text-white mb-2">
+            <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 p-4 sm:p-6 rounded-lg border-l-4 border-cyan-400">
+              <p className="text-base sm:text-lg font-medium text-white mb-2">
                 "Personalizado para você, projetado para o futuro."
               </p>
               <p className="text-white/80">
@@ -72,10 +72,10 @@ const AboutUs = () => {
         </div>
 
         {/* Right column - Visual */}
-        <div className="order-1 lg:order-2">
+        <div className="order-1 lg:order-2 px-4">
           <div className="relative">
-            <div className="bg-gradient-to-br from-cyan-100/20 to-blue-100/20 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/10">
-              <div className="grid grid-cols-2 gap-6">
+            <div className="bg-gradient-to-br from-cyan-100/20 to-blue-100/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg border border-white/10">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md">
                   <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-3">
                     <Lightbulb className="h-6 w-6 text-white" />
@@ -114,7 +114,7 @@ const AboutUs = () => {
       </div>
 
       {/* Features grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4">
         {features.map((feature, index) => (
           <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white/90 backdrop-blur-sm">
             <CardContent className="p-6 text-center">

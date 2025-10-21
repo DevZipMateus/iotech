@@ -35,40 +35,40 @@ const Hero = () => {
         <div className="absolute bottom-20 right-16 w-56 h-56 bg-cyan-500/8 rounded-full blur-3xl animate-pulse animation-delay-300"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-12 sm:py-16 md:py-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left column - Content */}
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light mb-6 text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-4 sm:mb-6 text-white leading-tight">
               Automação Residencial
               <span className="block bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-medium">
                 Inteligente
               </span>
             </h1>
 
-            <p className="text-xl sm:text-2xl lg:text-3xl text-cyan-300 mb-4 font-light">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-cyan-300 mb-3 sm:mb-4 font-light">
               Personalizado para você, projetado para o futuro.
             </p>
 
-            <p className="text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-300 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Desenvolvemos e instalamos sistemas de automação residencial personalizados que transformam sua casa em um ambiente mais inteligente, confortável e seguro.
             </p>
 
             {/* Action buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white border-0 px-8 py-6 text-lg"
+                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white border-0 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg"
                 onClick={() => scrollToSection('contato')}
               >
                 Solicitar Orçamento
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
               
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-blue-900 px-8 py-6 text-lg"
+                className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-blue-900 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg"
                 onClick={() => scrollToSection('servicos')}
               >
                 Nossos Serviços
@@ -76,17 +76,17 @@ const Hero = () => {
             </div>
 
             {/* Key features */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
-              <div className="flex items-center justify-center lg:justify-start text-slate-300">
-                <Home className="h-6 w-6 text-cyan-400 mr-3" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
+              <div className="flex items-center justify-center lg:justify-start text-slate-300 text-sm sm:text-base">
+                <Home className="h-5 w-5 sm:h-6 sm:w-6 text-cyan-400 mr-2 sm:mr-3 flex-shrink-0" />
                 <span>Iluminação Inteligente</span>
               </div>
-              <div className="flex items-center justify-center lg:justify-start text-slate-300">
-                <Shield className="h-6 w-6 text-cyan-400 mr-3" />
+              <div className="flex items-center justify-center lg:justify-start text-slate-300 text-sm sm:text-base">
+                <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-cyan-400 mr-2 sm:mr-3 flex-shrink-0" />
                 <span>Segurança Integrada</span>
               </div>
-              <div className="flex items-center justify-center lg:justify-start text-slate-300">
-                <Zap className="h-6 w-6 text-cyan-400 mr-3" />
+              <div className="flex items-center justify-center lg:justify-start text-slate-300 text-sm sm:text-base">
+                <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-cyan-400 mr-2 sm:mr-3 flex-shrink-0" />
                 <span>Climatização Controlada</span>
               </div>
             </div>
