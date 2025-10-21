@@ -7,14 +7,14 @@ interface ContactInfoProps {
 }
 
 const ContactInfo: React.FC<ContactInfoProps> = ({ setRef }) => {
-  const whatsappNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
+  const whatsappNumber = '5554999892217'; // Número da Iotech.Dev: 54 999892217
   const whatsappMessage = 'Olá! Gostaria de mais informações sobre os serviços de automação residencial da Iotech.Dev.';
 
   const contactInfo = [
     {
       icon: <Phone className="h-5 w-5" />,
       title: "Telefone",
-      details: "+55 (47) 99172-4679",
+      details: "+55 (54) 99989-2217",
       href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     },
     {
@@ -26,7 +26,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ setRef }) => {
     {
       icon: <MessageCircle className="h-5 w-5" />,
       title: "WhatsApp",
-      details: "+55 (47) 99172-4679",
+      details: "+55 (54) 99989-2217",
       href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     },
     {

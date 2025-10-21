@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 const Services = () => {
-  const whatsappNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
+  const whatsappNumber = '5554999892217'; // Número da Iotech.Dev: 54 999892217
 
   const scrollToContact = () => {
     const message = 'Olá! Gostaria de solicitar uma consultoria gratuita sobre automação residencial da Iotech.Dev.';

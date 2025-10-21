@@ -6,7 +6,7 @@ const Reviews = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
 
-  const whatsappNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
+  const whatsappNumber = '5554999892217'; // Número da Iotech.Dev: 54 999892217
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(

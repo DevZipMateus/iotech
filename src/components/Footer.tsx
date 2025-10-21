@@ -9,7 +9,7 @@ const Footer = () => {
     }
   };
 
-  const whatsappNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
+  const whatsappNumber = '5554999892217'; // Número da Iotech.Dev: 54 999892217
   const whatsappMessage = 'Olá! Gostaria de mais informações sobre os serviços de automação residencial da Iotech.Dev.';
 
   const currentYear = new Date().getFullYear();
@@ -142,7 +142,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-cyan-400 transition-colors"
                 >
-                  (47) 99172-4679
+                  (54) 99989-2217
                 </a>
               </div>
               

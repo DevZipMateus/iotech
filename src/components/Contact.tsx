@@ -18,7 +18,7 @@ const Contact = () => {
   });
   const { toast } = useToast();
 
-  const whatsappNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
+  const whatsappNumber = '5554999892217'; // Número da Iotech.Dev: 54 999892217
   const whatsappMessage = 'Olá! Gostaria de mais informações sobre os serviços de automação residencial da Iotech.Dev.';
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -48,7 +48,7 @@ Mensagem: ${formData.message}`;
     {
       icon: Phone,
       title: 'Telefone',
-      value: '(47) 99172-4679',
+      value: '(54) 99989-2217',
       link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     },
     {

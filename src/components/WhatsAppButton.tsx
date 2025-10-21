@@ -21,7 +21,7 @@ const WhatsAppButton = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = '554799172467'; // Número da Iotech.Dev: 47 99172-4679
+    const phoneNumber = '5554999892217'; // Número da Iotech.Dev: 54 999892217
     const message = 'Olá! Gostaria de mais informações sobre os serviços de automação residencial da Iotech.Dev.';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
