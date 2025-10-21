@@ -67,7 +67,7 @@ const Index = () => {
       "email": "contatoiotech.dev@gmail.com",
       "url": window.location.origin,
       "logo": window.location.origin + "/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png",
-      "sameAs": ["https://www.instagram.com/iotech.oficial/"]
+      "sameAs": ["https://www.instagram.com/iotech.dev.br"]
     };
 
     const script = document.createElement('script');

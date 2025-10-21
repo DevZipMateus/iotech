@@ -165,12 +165,12 @@ const Footer = () => {
                   <Instagram className="h-5 w-5 text-cyan-400 flex-shrink-0" />
                 </div>
                 <a 
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                  href="https://www.instagram.com/iotech.dev.br"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-cyan-400 transition-colors"
                 >
-                  @iotech.oficial
+                  @iotech.dev.br
                 </a>
               </div>
             </div>

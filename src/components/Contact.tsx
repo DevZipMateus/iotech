@@ -66,8 +66,8 @@ Mensagem: ${formData.message}`;
     {
       icon: Instagram,
       title: 'Instagram',
-      value: '@iotech.oficial',
-      link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
+      value: '@iotech.dev.br',
+      link: 'https://www.instagram.com/iotech.dev.br'
     }
   ];
 
