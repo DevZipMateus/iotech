@@ -20,7 +20,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ setRef }) => {
     {
       icon: <Mail className="h-5 w-5" />,
       title: "Email",
-      details: "contatoiotech.dev@gmail.com",
+      details: "marcospretto.iotech@gmail.com",
       href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     },
     {

@@ -54,7 +54,7 @@ Mensagem: ${formData.message}`;
     {
       icon: Mail,
       title: 'E-mail',
-      value: 'contatoiotech.dev@gmail.com',
+      value: 'marcospretto.iotech@gmail.com',
       link: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     },
     {

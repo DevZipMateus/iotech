@@ -64,7 +64,7 @@ const Index = () => {
         "addressCountry": "BR"
       },
       "telephone": "+55 54 99989-2217",
-      "email": "contatoiotech.dev@gmail.com",
+      "email": "marcospretto.iotech@gmail.com",
       "url": window.location.origin,
       "logo": window.location.origin + "/lovable-uploads/6ea06ada-fced-46d4-894a-c1955343ebf7.png",
       "sameAs": ["https://www.instagram.com/iotech.dev.br"]

@@ -156,7 +156,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-cyan-400 transition-colors break-all"
                 >
-                  contatoiotech.dev@gmail.com
+                  marcospretto.iotech@gmail.com
                 </a>
               </div>
               
