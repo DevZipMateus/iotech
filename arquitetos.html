@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arquitetos – Iotech.Dev</title>
+  <meta name="description" content="Soluções tecnológicas Iotech.Dev para arquitetos. Automação, segurança eletrônica e integração tecnológica para empreendimentos residenciais e comerciais." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --cyan: #22d3ee; --cyan-dark: #0891b2; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #fff; background: #0f172a; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+    @media (min-width: 1024px) { .container { padding: 0 3rem; } }
+
+    /* NAVBAR */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: #040a1f; padding: 0.75rem 0; transition: padding 0.3s, box-shadow 0.3s; }
+    #navbar.scrolled { padding: 0.5rem 0; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo img { height: 90px; width: auto; display: block; filter: drop-shadow(0 0 8px rgba(34,211,238,0.4)); }
+    .nav-links { display: none; list-style: none; gap: 2rem; }
+    @media (min-width: 1024px) { .nav-links { display: flex; align-items: center; } }
+    .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; position: relative; padding-bottom: 2px; transition: color 0.3s; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--cyan); transition: width 0.3s; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-dropdown-wrap { position: relative; }
+    .nav-dropdown-btn { display: flex; align-items: center; gap: 5px; color: #fff; font-size: 0.9rem; font-weight: 500; background: none; border: none; cursor: pointer; padding-bottom: 2px; transition: color 0.3s; }
+    .nav-dropdown-btn:hover { color: var(--cyan); }
+    .nav-dropdown-btn svg { transition: transform 0.25s; }
+    .nav-dropdown-wrap.open .nav-dropdown-btn svg { transform: rotate(180deg); }
+    .nav-dropdown { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); background: #040a1f; border: 1px solid rgba(34,211,238,0.18); border-radius: 10px; min-width: 200px; padding: 8px 0; box-shadow: 0 12px 40px rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 200; }
+    .nav-dropdown-wrap.open .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown a { display: block; padding: 10px 20px; color: #cbd5e1; font-size: 0.875rem; text-decoration: none; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+    .nav-dropdown a:hover { background: rgba(34,211,238,0.08); color: var(--cyan); }
+    .nav-dropdown a::after { display: none; }
+    .nav-dropdown a.active { color: var(--cyan); }
+
+    #menu-btn { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    @media (min-width: 1024px) { #menu-btn { display: none; } }
+    #menu-btn span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+
+    .nav-cta { display: none; }
+    @media (min-width: 1200px) { .nav-cta { display: flex; align-items: center; } }
+    .nav-btn-primary { display: inline-flex; align-items: center; gap: 6px; background: var(--cyan); color: #0f172a; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1.1rem; border-radius: 6px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .nav-btn-primary:hover { background: #67e8f9; transform: translateY(-1px); }
+
+    /* OVERLAY / MOBILE MENU */
+    #overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 90; }
+    #overlay.open { display: block; }
+    #mobile-menu { position: fixed; top: 0; right: -320px; width: 300px; height: 100vh; background: #0a1628; z-index: 95; display: flex; flex-direction: column; padding: 1.5rem; transition: right 0.3s; overflow-y: auto; }
+    #mobile-menu.open { right: 0; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .mobile-menu-header img { height: 50px; }
+    #close-menu { background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; }
+    .mobile-nav-links { list-style: none; flex: 1; }
+    .mobile-nav-links li a { display: block; padding: 0.9rem 0.5rem; color: #e2e8f0; font-size: 1rem; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.06); transition: background 0.15s, color 0.15s; }
+    .mobile-nav-links li a:hover { background: rgba(255,255,255,0.08); color: var(--cyan); }
+    .mobile-solutions-toggle { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0.5rem; color: #e2e8f0; font-size: 1rem; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.15s; }
+    .mobile-solutions-toggle:hover { color: var(--cyan); }
+    .mobile-solutions-toggle svg { transition: transform 0.25s; }
+    .mobile-solutions-sub { display: none; background: rgba(0,0,0,0.2); }
+    .mobile-solutions-sub.open { display: block; }
+    .mobile-solutions-sub a { display: block; padding: 0.75rem 1.5rem; color: #94a3b8; font-size: 0.9rem; text-decoration: none; transition: color 0.15s; }
+    .mobile-solutions-sub a:hover { color: var(--cyan); }
+    .mobile-solutions-sub a.active { color: var(--cyan); }
+    .mobile-footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-align: center; padding-top: 1rem; }
+
+    /* HERO */
+    .page-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      background-image: url('img/hero_bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(4,10,31,0.96) 0%, rgba(4,10,31,0.82) 40%, rgba(4,10,31,0.45) 100%);
+      z-index: 1;
+    }
+    .page-hero-inner { position: relative; z-index: 2; width: 100%; padding: 7rem 0 4rem; }
+    .page-hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.25); border-radius: 20px; padding: 5px 14px; font-size: 0.8rem; color: var(--cyan); font-weight: 500; margin-bottom: 1.5rem; }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; max-width: 680px; }
+    .page-hero h1 span { color: var(--cyan); }
+    .page-hero p { font-size: 1.1rem; color: #94a3b8; max-width: 560px; line-height: 1.7; margin-bottom: 2rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--cyan); color: #0f172a; font-size: 0.95rem; font-weight: 600; padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: #67e8f9; transform: translateY(-1px); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; font-size: 0.95rem; font-weight: 500; padding: 0.75rem 1.75rem; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.25); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    /* PLACEHOLDER CONTENT */
+    .section-placeholder {
+      padding: 6rem 0;
+      position: relative;
+      background-image: url('img/fundo.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .section-placeholder::before { content: ''; position: absolute; inset: 0; background: rgba(5,10,30,0.88); z-index: 0; }
+    .section-placeholder .container { position: relative; z-index: 1; }
+    .placeholder-center { text-align: center; max-width: 600px; margin: 0 auto; }
+    .placeholder-center .icon { width: 72px; height: 72px; background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+    .placeholder-center h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+    .placeholder-center p { color: #94a3b8; font-size: 1rem; line-height: 1.7; }
+
+    /* FOOTER */
+    footer { position: relative; background-image: url('img/fundo.png'); background-size: cover; background-position: center; background-attachment: fixed; }
+    footer::before { content: ''; position: absolute; inset: 0; background: rgba(5,10,30,0.92); z-index: 0; }
+    footer .container { position: relative; z-index: 1; padding-top: 3rem; padding-bottom: 2rem; }
+    .footer-grid { display: grid; gap: 2.5rem; margin-bottom: 2.5rem; }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+    .footer-logo img { height: 60px; margin-bottom: 1rem; }
+    .footer-desc { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.75rem; max-width: 22rem; }
+    .footer-tagline { color: var(--cyan); font-weight: 500; font-size: 0.9rem; }
+    .footer-col-title { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 1rem; position: relative; padding-bottom: 0.5rem; }
+    .footer-col-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 28px; height: 2px; background: var(--cyan); }
+    .footer-nav { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-nav li a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-nav li a:hover { color: var(--cyan); }
+    .footer-contact { display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 0.6rem; }
+    .footer-ci-icon { color: var(--cyan); margin-top: 2px; flex-shrink: 0; }
+    .footer-contact-item p, .footer-contact-item a { color: #94a3b8; font-size: 0.875rem; text-decoration: none; line-height: 1.5; transition: color 0.2s; }
+    .footer-contact-item a:hover { color: var(--cyan); }
+    hr.footer-hr { border: none; border-top: 1px solid #1e293b; margin-bottom: 1.5rem; }
+    .footer-bottom { display: flex; flex-direction: column; gap: 0.5rem; text-align: center; color: #475569; font-size: 0.8rem; }
+    @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; } }
+
+    /* WA BTN */
+    #wa-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99; background: #25d366; color: #fff; border: none; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.2s; }
+    #wa-btn:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body>
+
+<header id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo.png" alt="Iotech.Dev" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li class="nav-dropdown-wrap" id="nav-solucoes">
+          <button class="nav-dropdown-btn" onclick="toggleDropdown()" aria-haspopup="true">
+            Soluções
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <a href="construtoras.html">Construtoras</a>
+            <a href="arquitetos.html" class="active">Arquitetos</a>
+          </div>
+        </li>
+        <li><a href="index.html#localizacao">Localização</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="index.html#contato" class="nav-btn-primary">
+          Solicitar Orçamento
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <button id="menu-btn" aria-label="Abrir menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="overlay" onclick="toggleMenu()"></div>
+<nav id="mobile-menu">
+  <div class="mobile-menu-header">
+    <img src="img/logo.png" alt="Iotech.Dev" />
+    <button id="close-menu" onclick="toggleMenu()" aria-label="Fechar menu">&times;</button>
+  </div>
+  <ul class="mobile-nav-links">
+    <li><a href="index.html" onclick="toggleMenu()">Início</a></li>
+    <li><a href="index.html#sobre" onclick="toggleMenu()">Sobre</a></li>
+    <li><a href="produtos.html" onclick="toggleMenu()">Produtos</a></li>
+    <li>
+      <div class="mobile-solutions-toggle" onclick="toggleMobileSolutions(this)">
+        Soluções
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="mobile-solutions-sub">
+        <a href="construtoras.html" onclick="toggleMenu()">Construtoras</a>
+        <a href="arquitetos.html" class="active" onclick="toggleMenu()">Arquitetos</a>
+      </div>
+    </li>
+    <li><a href="index.html#localizacao" onclick="toggleMenu()">Localização</a></li>
+    <li><a href="index.html#contato" onclick="toggleMenu()">Contato</a></li>
+  </ul>
+  <p class="mobile-footer-note">© 2025 Iotech.Dev – Todos os direitos reservados</p>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="container">
+      <div class="page-hero-tag">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Soluções para Arquitetos
+      </div>
+      <h1>Design que <span>ganha vida</span> com tecnologia integrada</h1>
+      <p>Entregamos soluções tecnológicas que se encaixam perfeitamente no seu projeto arquitetônico — automação, iluminação inteligente e segurança integrados desde a concepção.</p>
+      <div class="hero-actions">
+        <a href="index.html#contato" class="btn-primary">
+          Falar com Especialista
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="index.html#servicos" class="btn-outline">Ver Serviços</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEÚDO PLACEHOLDER -->
+<section class="section-placeholder">
+  <div class="container">
+    <div class="placeholder-center">
+      <div class="icon">
+        <svg width="32" height="32" fill="none" stroke="#22d3ee" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h2>Conteúdo em breve</h2>
+      <p>Esta página está sendo preparada com detalhes das soluções exclusivas Iotech.Dev para arquitetos. Em breve você encontrará aqui todas as informações sobre integração tecnológica em projetos arquitetônicos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="img/logo.png" alt="Iotech.Dev" /></div>
+        <p class="footer-desc">Transformamos empreendimentos com soluções tecnológicas personalizadas para arquitetos e construtoras. Qualidade, inovação e tecnologia premium.</p>
+        <p class="footer-tagline">"Personalizado para você, projetado para o futuro."</p>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Navegação</h3>
+        <ul class="footer-nav">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#sobre">Sobre Nós</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="construtoras.html">Construtoras</a></li>
+          <li><a href="arquitetos.html" class="active">Arquitetos</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Contato</h3>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <div class="footer-ci-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <p>Av. Hermógenes Assis Feijó nº 399<br>Sala 11 – Barra<br>Balneário Camboriú/SC · CEP: 88330-005</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-ci-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.9 19.79 19.79 0 01.22 1.31 2 2 0 012.2 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <a href="https://wa.me/5547991560307?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20Iotech.Dev." target="_blank" rel="noopener noreferrer">(47) 99156-0307</a>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-ci-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <a href="mailto:contatoiotech.dev@gmail.com">contatoiotech.dev@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-hr" />
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Iotech.Dev – Todos os direitos reservados.</p>
+      <p>Desenvolvido com tecnologia e inovação em Santa Catarina</p>
+    </div>
+  </div>
+</footer>
+
+<button id="wa-btn" onclick="window.open('https://wa.me/5547991560307?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20Iotech.Dev.','_blank')" aria-label="WhatsApp">
+  <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.63"/></svg>
+</button>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('overlay');
+    const btn = document.getElementById('menu-btn');
+    const isOpen = menu.classList.contains('open');
+    menu.classList.toggle('open', !isOpen);
+    overlay.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  }
+
+  function toggleDropdown() {
+    document.getElementById('nav-solucoes').classList.toggle('open');
+  }
+
+  function toggleMobileSolutions(el) {
+    const sub = el.nextElementSibling;
+    const svg = el.querySelector('svg');
+    sub.classList.toggle('open');
+    svg.style.transform = sub.classList.contains('open') ? 'rotate(180deg)' : '';
+  }
+
+  document.addEventListener('click', e => {
+    const wrap = document.getElementById('nav-solucoes');
+    if (wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
+  });
+</script>
+</body>
+</html>

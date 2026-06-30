@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iotech.Dev - Soluções Tecnológicas para Empreendimentos | Balneário Camboriú/SC</title>
+  <meta name="description" content="Iotech.Dev desenvolve soluções tecnológicas para arquitetos e construtoras, agregando valor, exclusividade e diferenciação aos empreendimentos. Soluções inteligentes que se moldam à sua necessidade." />
+  <meta name="author" content="Iotech.Dev" />
+  <meta property="og:title" content="Iotech.Dev - Soluções Tecnológicas para Empreendimentos" />
+  <meta property="og:description" content="Soluções tecnológicas personalizadas para arquitetos e construtoras. Equipamentos de fabricação própria e instalação especializada." />
+  <meta property="og:image" content="/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Iotech.Dev",
+    "description": "Empresa especializada em soluções tecnológicas para arquitetos e construtoras",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Hermógenes Assis Feijó nº 399 Sala 11",
+      "addressLocality": "Balneário Camboriú",
+      "addressRegion": "SC",
+      "postalCode": "88330-005",
+      "addressCountry": "BR"
+    },
+    "telephone": "+55 47 99156-0307",
+    "email": "contatoiotech.dev@gmail.com",
+    "logo": "/logo.png",
+    "sameAs": ["https://www.instagram.com/iotech.dev.br"]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cyan: #22d3ee;
+      --cyan-dark: #0891b2;
+      --blue: #1e40af;
+      --blue-dark: #1e3a8a;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      color: #fff;
+      background: #0f172a;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    @media (min-width: 1024px) { .container { padding: 0 3rem; } }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #040a1f;
+      padding: 0.75rem 0;
+      transition: padding 0.3s, box-shadow 0.3s;
+    }
+    #navbar.scrolled { padding: 0.5rem 0; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+
+    .nav-logo img { height: 90px; width: auto; display: block; filter: drop-shadow(0 0 8px rgba(34,211,238,0.4)); }
+
+    .nav-links { display: none; list-style: none; gap: 2rem; }
+    @media (min-width: 1024px) { .nav-links { display: flex; } }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--cyan);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── DROPDOWN SOLUÇÕES ── */
+    .nav-dropdown-wrap { position: relative; }
+    .nav-dropdown-btn {
+      display: flex; align-items: center; gap: 5px;
+      color: #fff; font-size: 0.9rem; font-weight: 500;
+      background: none; border: none; cursor: pointer;
+      padding-bottom: 2px; transition: color 0.3s;
+    }
+    .nav-dropdown-btn:hover { color: var(--cyan); }
+    .nav-dropdown-btn svg { transition: transform 0.25s; }
+    .nav-dropdown-wrap.open .nav-dropdown-btn svg { transform: rotate(180deg); }
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 14px); left: 50%;
+      transform: translateX(-50%);
+      background: #040a1f;
+      border: 1px solid rgba(34,211,238,0.18);
+      border-radius: 10px;
+      min-width: 200px;
+      padding: 8px 0;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      opacity: 0; pointer-events: none;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 200;
+    }
+    .nav-dropdown-wrap.open .nav-dropdown {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown a {
+      display: block; padding: 10px 20px;
+      color: #cbd5e1; font-size: 0.875rem; font-weight: 400;
+      text-decoration: none; transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-dropdown a:hover { background: rgba(34,211,238,0.08); color: var(--cyan); }
+    .nav-dropdown a::after { display: none; }
+
+    /* mobile soluções */
+    .mobile-solutions-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 1.5rem; color: #e2e8f0; font-size: 1rem;
+      cursor: pointer; transition: background 0.15s, color 0.15s;
+    }
+    .mobile-solutions-toggle:hover { background: rgba(255,255,255,0.06); color: var(--cyan); }
+    .mobile-solutions-toggle svg { transition: transform 0.25s; }
+    .mobile-solutions-sub { display: none; background: rgba(0,0,0,0.25); }
+    .mobile-solutions-sub.open { display: block; }
+    .mobile-solutions-sub a {
+      display: block; padding: 0.75rem 2.5rem;
+      color: #94a3b8; font-size: 0.9rem; text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .mobile-solutions-sub a:hover { background: rgba(255,255,255,0.06); color: var(--cyan); }
+
+    #menu-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+    @media (min-width: 1024px) { #menu-btn { display: none; } }
+    #menu-btn span {
+      display: block;
+      width: 24px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    #menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #menu-btn.open span:nth-child(2) { opacity: 0; }
+    #menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    #mobile-menu {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: 85%;
+      max-width: 320px;
+      background: linear-gradient(135deg, #1e3a8a, #1e293b);
+      z-index: 200;
+      padding: 1.5rem;
+      border-left: 3px solid var(--cyan);
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s;
+      display: flex;
+    }
+    #mobile-menu.open { transform: translateX(0); }
+    #overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 150;
+    }
+    #overlay.open { display: block; }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(34,211,238,0.2);
+      margin-bottom: 2rem;
+    }
+    .mobile-menu-header img { height: 56px; }
+    #close-menu { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; line-height: 1; }
+
+    .mobile-nav-links { list-style: none; flex: 1; }
+    .mobile-nav-links li a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.2s, color 0.2s;
+    }
+    .mobile-nav-links li a:hover { background: rgba(255,255,255,0.08); color: var(--cyan); }
+    .mobile-footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-align: center; padding-top: 1rem; }
+
+    /* ── SHARED ── */
+    section { padding: 5rem 0; }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .section-title .gradient {
+      background: linear-gradient(90deg, var(--cyan), #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 500;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      max-width: 48rem;
+    }
+
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    /* ── HERO ── */
+    #inicio {
+      position: relative;
+      overflow: hidden;
+      padding-top: 90px;
+      background: linear-gradient(135deg, #1e3a8a, #1e293b, #172554);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
+
+    .hero-text { text-align: center; }
+    @media (min-width: 1024px) { .hero-text { text-align: left; } }
+
+    .hero-visual { order: -1; }
+    @media (min-width: 1024px) { .hero-visual { order: 0; } }
+
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title .gradient {
+      display: block;
+      background: linear-gradient(90deg, var(--cyan), #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 500;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: #67e8f9;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .hero-desc {
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 38rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 1024px) { .hero-desc { margin-left: 0; } }
+
+    .btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 480px) { .btn-row { flex-direction: row; } }
+    @media (min-width: 1024px) { .btn-row { justify-content: flex-start; } }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+      font-family: inherit;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--cyan-dark), var(--blue)); color: #fff; }
+    .btn-primary:hover { background: linear-gradient(135deg, #0e7490, #1d4ed8); transform: translateY(-2px); }
+    .btn-outline { background: transparent; border-color: var(--cyan); color: var(--cyan); }
+    .btn-outline:hover { background: var(--cyan); color: #1e3a8a; transform: translateY(-2px); }
+    .btn-white { background: #fff; color: var(--cyan-dark); }
+    .btn-white:hover { background: #f1f5f9; transform: translateY(-2px); }
+
+    .hero-badges {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    @media (min-width: 480px) { .hero-badges { grid-template-columns: repeat(3, 1fr); } }
+
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+    @media (min-width: 1024px) { .hero-badge { justify-content: flex-start; } }
+
+    .img-card {
+      position: relative;
+    }
+    .img-card::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      background: rgba(34,211,238,0.15);
+      border-radius: 20px;
+      filter: blur(24px);
+    }
+    .img-card.blue-glow::before { background: rgba(59,130,246,0.15); }
+    .img-card img {
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(34,211,238,0.25);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── FUNDO COMPARTILHADO (todas seções exceto hero) ── */
+    #quadro, #sobre, #servicos, #localizacao, #contato, footer {
+      position: relative;
+      background-image: url('img/fundo.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    #quadro::before, #sobre::before, #servicos::before, #localizacao::before, #contato::before, footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 10, 30, 0.82);
+      z-index: 0;
+    }
+    #quadro .container, #sobre .container, #servicos .container, #localizacao .container, #contato .container, footer .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── QUADRO ── */
+    #quadro {
+      overflow: hidden;
+    }
+
+    .two-col { display: grid; gap: 2.5rem; align-items: center; }
+    @media (min-width: 1024px) { .two-col { grid-template-columns: 1fr 1fr; } }
+
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .feature-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .feature-icon {
+      width: 40px; height: 40px;
+      background: rgba(34,211,238,0.12);
+      border: 1px solid rgba(34,211,238,0.25);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .feature-item strong { display: block; color: #fff; font-weight: 600; margin-bottom: 0.2rem; }
+    .feature-item p { color: #94a3b8; font-size: 0.9rem; }
+
+    /* ── SOBRE ── */
+    #sobre { }
+
+    .about-text p { color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 1rem; }
+    .about-text strong { color: #fff; }
+
+    .quote-box {
+      background: linear-gradient(135deg, rgba(34,211,238,0.12), rgba(59,130,246,0.12));
+      border-left: 4px solid var(--cyan);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .quote-box .quote-main { font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+    .quote-box .quote-sub { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.6; }
+
+    .about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+
+    /* ── EQUIPE ── */
+    #equipe {
+      background: linear-gradient(180deg, #0a1628 0%, #0f172a 100%);
+      position: relative;
+    }
+
+    .equipe-intro {
+      max-width: 56rem;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+    .equipe-intro p {
+      color: rgba(255,255,255,0.72);
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .equipe-intro p + p { margin-top: 1rem; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .team-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .team-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(34,211,238,0.10);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s;
+    }
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(34,211,238,0.10), 0 4px 16px rgba(0,0,0,0.4);
+      border-color: rgba(34,211,238,0.28);
+    }
+
+    .team-photo {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+    .team-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.55s cubic-bezier(.22,1,.36,1);
+    }
+    .team-card:hover .team-photo img { transform: scale(1.06); }
+
+    .team-photo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(9,21,37,0.82) 0%, rgba(9,21,37,0.10) 55%, transparent 100%);
+    }
+
+    .team-info {
+      padding: 1.1rem 1.25rem 1.25rem;
+      border-top: 1px solid rgba(34,211,238,0.08);
+    }
+    .team-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .team-role {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 480px) {
+      .team-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .team-info { padding: 0.9rem 1rem; }
+      .team-name { font-size: 0.9rem; }
+      .team-role { font-size: 0.68rem; }
+    }
+
+    /* ── SERVIÇOS ── */
+    #servicos { }
+
+    .cards-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 640px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .cards-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .service-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+
+    .service-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--cyan-dark), var(--blue));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      transition: transform 0.3s;
+    }
+    .service-card:hover .service-icon { transform: scale(1.1); }
+    .service-icon svg { color: #fff; }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1e293b;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      transition: color 0.3s;
+    }
+    .service-card:hover h3 { color: var(--cyan-dark); }
+    .service-card > p { font-size: 0.9rem; color: #64748b; line-height: 1.6; margin-bottom: 0.75rem; }
+
+    .feat-label { font-size: 0.8rem; font-weight: 600; color: #475569; margin-bottom: 0.4rem; }
+    .service-features { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .service-features li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #64748b; }
+    .service-features li::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      background: linear-gradient(135deg, var(--cyan-dark), var(--blue));
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--cyan-dark), var(--blue), var(--cyan-dark));
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .cta-box h3 { font-size: clamp(1.2rem, 3vw, 1.75rem); font-weight: 600; margin-bottom: 0.75rem; }
+    .cta-box p { color: #a5f3fc; font-size: 1rem; margin-bottom: 1.5rem; max-width: 40rem; margin-left: auto; margin-right: auto; }
+
+    /* ── LOCALIZAÇÃO ── */
+    #localizacao { }
+
+    .map-grid { display: grid; gap: 2.5rem; align-items: start; }
+    @media (min-width: 1024px) { .map-grid { grid-template-columns: 1fr 1fr; } }
+
+    .map-frame { border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+    .map-frame iframe { display: block; width: 100%; height: 380px; border: 0; }
+
+    .location-info { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .address-block { display: flex; align-items: flex-start; gap: 1rem; }
+    .loc-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--cyan-dark), var(--blue));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .address-block h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .address-block p { color: rgba(255,255,255,0.75); line-height: 1.7; font-size: 1rem; }
+
+    .loc-highlight {
+      background: linear-gradient(135deg, rgba(34,211,238,0.12), rgba(59,130,246,0.12));
+      border-left: 4px solid var(--cyan);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+    .loc-highlight h4 { font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .loc-highlight p { color: rgba(255,255,255,0.75); font-size: 0.9rem; line-height: 1.6; }
+
+    .loc-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .loc-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(34,211,238,0.2);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .loc-card-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 0.6rem;
+    }
+    .loc-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .loc-card p { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+
+    .loc-btn-row { display: flex; flex-direction: column; gap: 0.75rem; }
+    @media (min-width: 480px) { .loc-btn-row { flex-direction: row; } }
+
+    /* ── CONTATO ── */
+    #contato { }
+
+    .contact-grid { display: grid; gap: 2rem; }
+    @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+
+    .contact-card {
+      background: rgba(255,255,255,0.93);
+      color: #1e293b;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .contact-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+    .contact-card-header svg { color: var(--cyan-dark); }
+    .contact-card-header h3 { font-size: 1.25rem; font-weight: 600; color: #1e293b; }
+    .contact-card-desc { font-size: 0.9rem; color: #64748b; margin-bottom: 1.5rem; }
+
+    .form-row { display: grid; gap: 1rem; margin-bottom: 0; }
+    @media (min-width: 480px) { .form-row { grid-template-columns: 1fr 1fr; } }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.875rem; font-weight: 500; color: #374151; }
+    .form-group input,
+    .form-group textarea {
+      padding: 0.65rem 0.9rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: #1e293b;
+      background: #fff;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--cyan-dark); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--cyan-dark), var(--blue));
+      color: #fff;
+      padding: 0.85rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .contact-info-col { display: flex; flex-direction: column; gap: 1rem; }
+
+    .info-card {
+      background: rgba(255,255,255,0.93);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .info-card h3 { font-size: 1.2rem; font-weight: 600; color: #1e293b; margin-bottom: 1rem; }
+
+    .info-item { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.5rem 0; }
+    .info-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--cyan-dark), var(--blue));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .info-icon svg { color: #fff; }
+    .info-item h4 { font-size: 0.875rem; font-weight: 600; color: #1e293b; margin-bottom: 0.2rem; }
+    .info-item a { color: var(--cyan-dark); text-decoration: none; font-size: 0.9rem; }
+    .info-item a:hover { color: #0e7490; }
+    .info-item p { font-size: 0.9rem; color: #64748b; }
+    .info-item .sub { font-size: 0.8rem; color: #94a3b8; }
+
+    .hours-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .hours-title { display: flex; align-items: center; gap: 0.6rem; font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+    .hours-title svg { color: var(--cyan); }
+    .hours-row { display: flex; justify-content: space-between; font-size: 0.9rem; padding: 0.35rem 0; color: rgba(255,255,255,0.85); }
+    .hours-note {
+      background: rgba(34,211,238,0.12);
+      border: 1px solid rgba(34,211,238,0.25);
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-size: 0.85rem;
+      color: #a5f3fc;
+      margin-top: 0.75rem;
+    }
+
+    /* ── FOOTER ── */
+    footer { padding: 3.5rem 0 2rem; }
+
+    .footer-grid { display: grid; gap: 2rem; margin-bottom: 2.5rem; }
+    @media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1.5fr; } }
+
+    .footer-logo img { height: 72px; margin-bottom: 1rem; }
+    .footer-desc { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.75rem; max-width: 22rem; }
+    .footer-tagline { color: var(--cyan); font-weight: 500; font-size: 0.9rem; }
+
+    .footer-col-title {
+      font-size: 1rem; font-weight: 600; color: #fff;
+      margin-bottom: 1rem;
+      position: relative; padding-bottom: 0.5rem;
+    }
+    .footer-col-title::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+    }
+
+    .footer-nav { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-nav li a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-nav li a:hover { color: var(--cyan); }
+
+    .footer-contact { display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 0.65rem; }
+    .footer-ci-icon {
+      width: 32px; height: 32px;
+      background: rgba(34,211,238,0.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .footer-ci-icon svg { color: var(--cyan); }
+    .footer-contact-item a,
+    .footer-contact-item p { color: #94a3b8; font-size: 0.875rem; text-decoration: none; line-height: 1.5; transition: color 0.2s; }
+    .footer-contact-item a:hover { color: var(--cyan); }
+
+    hr.footer-hr { border-color: #334155; margin-bottom: 1.5rem; }
+
+    .footer-bottom {
+      display: flex; flex-direction: column; gap: 0.5rem;
+      align-items: center; text-align: center;
+      color: #64748b; font-size: 0.85rem;
+    }
+    @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; } }
+
+    /* ── NAVBAR CTA ── */
+    .nav-cta { display: none; }
+    @media (min-width: 1200px) { .nav-cta { display: flex; align-items: center; gap: 0.6rem; } }
+    .nav-btn-primary {
+      background: var(--cyan);
+      color: #0f172a;
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .nav-btn-primary:hover { background: #67e8f9; transform: translateY(-1px); }
+    .nav-btn-secondary {
+      background: transparent;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .nav-btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    /* ── HERO REBUILD ── */
+    #inicio {
+      position: relative;
+      overflow: hidden;
+      padding-top: 90px;
+      background: #030712;
+    }
+
+    /* Main hero bg + content */
+    .hero-main {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      background-image: url('img/hero_bg.jpg');
+      background-size: cover;
+      background-position: center center;
+    }
+    .hero-main::before {
+      content: '';
+      position: absolute; inset: 0;
+      z-index: 1;
+      background: linear-gradient(to right,
+        rgba(3,7,18,0.95) 0%,
+        rgba(3,7,18,0.80) 35%,
+        rgba(3,7,18,0.25) 65%,
+        rgba(3,7,18,0.50) 100%
+      );
+    }
+    .hero-main-inner { position: relative; z-index: 2; width: 100%; padding: 4rem 0; }
+
+    .hero-content {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (min-width: 1024px) { .hero-content { grid-template-columns: 1fr 260px; gap: 1rem; align-items: center; padding-top: 1rem; } }
+
+    /* Banner produto — abaixo do carrossel */
+    .hero-product-banner {
+      margin: 0 1.5rem 0;
+      border-radius: 14px 14px 0 0;
+      overflow: hidden;
+      border: 1px solid rgba(34,211,238,0.18);
+      border-bottom: none;
+      box-shadow: 0 0 50px rgba(34,211,238,0.07);
+    }
+    @media (min-width: 1024px) { .hero-product-banner { margin: 0 3rem 0; } }
+    .hero-product-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.4rem, 5.5vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-h1 .cyan { color: var(--cyan); display: block; }
+
+    .hero-sub-text {
+      font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 34rem;
+    }
+
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+    .btn-hero-cyan {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--cyan); color: #0f172a;
+      padding: 0.85rem 1.6rem;
+      border-radius: 6px; font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-hero-cyan:hover { background: #67e8f9; transform: translateY(-2px); }
+
+    .btn-hero-dark {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(0,0,0,0.35); color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      padding: 0.85rem 1.6rem;
+      border-radius: 6px; font-size: 0.82rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-hero-dark:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+
+
+    /* Feature panel (right) */
+    .hero-features {
+      background: rgba(3,7,18,0.55);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+    }
+    .hero-features ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .hero-features li {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.875rem; color: rgba(255,255,255,0.92);
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-features li:last-child { border-bottom: none; }
+    .hfeat-icon {
+      width: 28px; height: 28px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hfeat-icon svg { color: var(--cyan); }
+
+    /* Carousel */
+    .hero-carousel {
+      background: rgba(3,7,18,0.97);
+      padding: 0;
+      position: relative;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .carousel-viewport { overflow: hidden; width: 100%; }
+    .carousel-track {
+      display: flex; gap: 2px;
+      transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+      width: 100%;
+    }
+    /* Desktop: 8 itens preenchem toda a largura */
+    .c-item {
+      flex: 1;
+      min-width: 0;
+      border-radius: 0;
+      overflow: hidden; position: relative; cursor: pointer;
+      border: 0; border-top: 3px solid transparent;
+      transition: border-color 0.25s, flex 0.35s;
+    }
+    .c-item.active { border-top-color: var(--cyan); flex: 1.5; }
+    .c-item img {
+      width: 100%; height: 200px; object-fit: cover; object-position: center center; display: block;
+      filter: brightness(0.55); transition: filter 0.25s;
+    }
+    .c-item:hover img, .c-item.active img { filter: brightness(0.78); }
+    .c-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.92));
+      padding: 2rem 0.8rem 0.75rem;
+      display: flex; align-items: flex-end; gap: 0.5rem;
+    }
+    .c-label svg { color: var(--cyan); flex-shrink: 0; width: 14px; height: 14px; }
+    .c-label span { font-size: 0.65rem; color: #fff; font-weight: 600; line-height: 1.25; letter-spacing: 0.01em; }
+    @media (max-width: 767px) {
+      .c-item { flex: none; width: 44vw; border-radius: 6px; border-top: 0; border: 2px solid transparent; }
+      .c-item.active { flex: none; border-color: var(--cyan); }
+      .c-item img { height: 120px; }
+      .carousel-viewport { padding: 0.5rem 2.75rem; }
+      .c-arrow { display: none; }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .c-item { flex: none; width: calc(100% / 5 - 3px); border-radius: 4px; border-top: 0; border: 2px solid transparent; }
+      .c-item.active { flex: none; border-color: var(--cyan); }
+      .c-item img { height: 150px; }
+    }
+    .c-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(3,7,18,0.82); border: 1px solid rgba(34,211,238,0.4);
+      color: var(--cyan); width: 38px; height: 38px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      z-index: 5; transition: background 0.2s, border-color 0.2s;
+    }
+    .c-arrow:hover { background: rgba(34,211,238,0.15); border-color: var(--cyan); }
+    .c-arrow.prev { left: 10px; }
+    .c-arrow.next { right: 10px; }
+    .c-dots { display: flex; justify-content: center; gap: 5px; padding: 0.5rem 0; background: rgba(3,7,18,0.97); }
+    .c-dot { width: 22px; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.2); cursor: pointer; transition: background 0.2s; }
+    .c-dot.active { background: var(--cyan); }
+    @media (min-width: 1024px) { .c-dots { display: none; } }
+
+    /* Segments */
+    .hero-segments {
+      background: rgba(3,7,18,0.98);
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(34,211,238,0.1);
+    }
+    .segments-grid {
+      display: grid;
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) { .segments-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .segments-grid { grid-template-columns: repeat(4, 1fr); } }
+    .seg-card {
+      padding: 2rem 1.75rem;
+      background: rgba(3,7,18,0.98);
+      transition: background 0.2s;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .seg-card:hover { background: rgba(12,22,50,0.98); }
+    .seg-icon { color: var(--cyan); flex-shrink: 0; margin-top: 2px; }
+    .seg-body { flex: 1; }
+    .seg-card h3 { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .seg-card p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5; margin-bottom: 0.85rem; }
+    .seg-link {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--cyan); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      transition: gap 0.2s;
+    }
+    .seg-link:hover { gap: 0.6rem; }
+
+    /* Stats bar */
+    .hero-stats {
+      background: rgba(2,5,15,0.99);
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(34,211,238,0.08);
+    }
+    .stats-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem 0;
+      align-items: center;
+    }
+    @media (min-width: 1024px) { .stats-inner { flex-wrap: nowrap; } }
+    .stats-block {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 1.5rem;
+      flex: 1;
+    }
+    @media (min-width: 768px) { .stats-block { grid-template-columns: repeat(4, 1fr); } }
+    .stat-item { display: flex; align-items: flex-start; gap: 0.6rem; }
+    .stat-icon { color: var(--cyan); flex-shrink: 0; margin-top: 2px; }
+    .stat-item strong { display: block; font-size: 0.85rem; font-weight: 700; color: #fff; }
+    .stat-item p { font-size: 0.73rem; color: rgba(255,255,255,0.48); line-height: 1.4; }
+    .stats-sep {
+      width: 1px; background: rgba(255,255,255,0.12); align-self: stretch;
+      margin: 0 2rem; min-height: 40px; display: none;
+    }
+    @media (min-width: 1024px) { .stats-sep { display: block; } }
+    .partners-block { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+    .partner-tag {
+      color: rgba(255,255,255,0.42); transition: color 0.2s; text-decoration: none;
+      white-space: nowrap;
+    }
+    .partner-tag:hover { color: rgba(255,255,255,0.8); }
+    .partner-tag.p-control4 { font-size: 1rem; font-weight: 700; letter-spacing: 0.02em; }
+    .partner-tag.p-crestron { font-size: 0.95rem; font-weight: 400; letter-spacing: 0.04em; font-style: italic; }
+    .partner-tag.p-knx { font-size: 1.1rem; font-weight: 900; letter-spacing: 0.06em; }
+    .partner-tag.p-savant { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+    .partner-tag.p-lutron { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ── WHATSAPP ── */
+    #wa-btn {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      z-index: 50;
+      width: 60px; height: 60px;
+      background: #22c55e;
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s, transform 0.5s, background 0.2s, box-shadow 0.3s;
+    }
+    #wa-btn.visible { opacity: 1; transform: translateY(0); }
+    #wa-btn:hover { background: #16a34a; box-shadow: 0 12px 32px rgba(34,197,94,0.4); }
+    #wa-btn svg { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<header id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#inicio" class="nav-logo" onclick="scrollTo('inicio');return false;">
+        <img src="img/logo.png" alt="Iotech.Dev" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#inicio" onclick="scrollTo('inicio');return false;">Início</a></li>
+        <li><a href="#sobre" onclick="scrollTo('sobre');return false;">Sobre</a></li>
+        <li><a href="#equipe" onclick="scrollTo('equipe');return false;">Equipe</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li class="nav-dropdown-wrap" id="nav-solucoes">
+          <button class="nav-dropdown-btn" onclick="toggleDropdown()" aria-haspopup="true">
+            Soluções
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <a href="construtoras.html">Construtoras</a>
+            <a href="arquitetos.html">Arquitetos</a>
+          </div>
+        </li>
+        <li><a href="#localizacao" onclick="scrollTo('localizacao');return false;">Localização</a></li>
+        <li><a href="#contato" onclick="scrollTo('contato');return false;">Contato</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#contato" class="nav-btn-primary" onclick="scrollTo('contato');return false;">
+          Solicitar Orçamento
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <button id="menu-btn" aria-label="Abrir menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<nav id="mobile-menu">
+  <div class="mobile-menu-header">
+    <img src="img/logo.png" alt="Iotech.Dev" />
+    <button id="close-menu" onclick="toggleMenu()" aria-label="Fechar menu">&times;</button>
+  </div>
+  <ul class="mobile-nav-links">
+    <li><a href="#inicio" onclick="scrollTo('inicio');toggleMenu();return false;">Início</a></li>
+    <li><a href="#sobre" onclick="scrollTo('sobre');toggleMenu();return false;">Sobre</a></li>
+    <li><a href="#equipe" onclick="scrollTo('equipe');toggleMenu();return false;">Equipe</a></li>
+    <li><a href="produtos.html">Produtos</a></li>
+    <li>
+      <div class="mobile-solutions-toggle" onclick="toggleMobileSolutions(this)">
+        Soluções
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="mobile-solutions-sub">
+        <a href="construtoras.html" onclick="toggleMenu()">Construtoras</a>
+        <a href="arquitetos.html" onclick="toggleMenu()">Arquitetos</a>
+      </div>
+    </li>
+    <li><a href="#localizacao" onclick="scrollTo('localizacao');toggleMenu();return false;">Localização</a></li>
+    <li><a href="#contato" onclick="scrollTo('contato');toggleMenu();return false;">Contato</a></li>
+  </ul>
+  <p class="mobile-footer-note">© 2025 Iotech.Dev – Todos os direitos reservados</p>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="inicio">
+
+  <!-- ① Main hero -->
+  <div class="hero-main">
+    <div class="hero-main-inner">
+      <div class="container">
+        <div class="hero-content">
+
+          <!-- Esquerda: título + desc + botões -->
+          <div>
+            <h1 class="hero-h1">
+              Soluções inteligentes
+              <span class="cyan">que se moldam à<br>sua necessidade.</span>
+            </h1>
+            <p class="hero-sub-text">Automação, integração e controle para ambientes residenciais, comerciais e empreendimentos.</p>
+            <div class="hero-btns">
+              <a href="#servicos" class="btn-hero-cyan" onclick="scrollTo('servicos');return false;">
+                Conheça nossas soluções
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="produtos.html" class="btn-hero-dark">
+                Ver Produtos
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Direita: feature list -->
+          <div class="hero-features">
+            <ul>
+              <li>
+                <div class="hfeat-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                Valorização dos empreendimentos
+              </li>
+              <li>
+                <div class="hfeat-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+                Diferenciação no mercado
+              </li>
+              <li>
+                <div class="hfeat-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+                Eficiência operacional
+              </li>
+              <li>
+                <div class="hfeat-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                Conforto para usuários
+              </li>
+              <li>
+                <div class="hfeat-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                Segurança e tranquilidade
+              </li>
+              <li>
+                <div class="hfeat-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                Redução de custos
+              </li>
+              <li>
+                <div class="hfeat-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                Tecnologia integrada
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ② Carousel de categorias -->
+  <div class="hero-carousel">
+    <button class="c-arrow prev" onclick="carouselMove(-1)" aria-label="Anterior">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="cTrack">
+        <div class="c-item active">
+          <img src="img/c_residencial.jpg" alt="Residências Inteligentes" loading="lazy" />
+          <div class="c-label">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            <span>Residências<br>Inteligentes</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <img src="img/c_comercial.jpg" alt="Ambientes Comerciais" loading="lazy" />
+          <div class="c-label">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+            <span>Ambientes<br>Comerciais</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <img src="img/c_construtoras.jpg" alt="Construtoras e Empreendimentos" loading="lazy" />
+          <div class="c-label">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10"/></svg>
+            <span>Construtoras e<br>Empreendimentos</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <img src="img/c_tecnologia.jpg" alt="Tecnologia no dia a dia" loading="lazy" />
+          <div class="c-label">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Tecnologia no<br>dia a dia</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <img src="img/c_climatizacao.jpg" alt="Climatização Inteligente" loading="lazy" />
+          <div class="c-label">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M4.93 4.93l14.14 14.14M2 12h20M4.93 19.07L19.07 4.93"/></svg>
+            <span>Climatização<br>Inteligente</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <img src="img/c_iluminacao.jpg" alt="Iluminação Inteligente" loading="lazy" />
+          <div class="c-label">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <span>Iluminação<br>Inteligente</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <img src="img/c_cortinas.jpg" alt="Cortinas Automatizadas" loading="lazy" />
+          <div class="c-label">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+            <span>Cortinas<br>Automatizadas</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <img src="img/c_seguranca.jpg" alt="Segurança e Monitoramento" loading="lazy" />
+          <div class="c-label">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Segurança e<br>Monitoramento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="c-arrow next" onclick="carouselMove(1)" aria-label="Próximo">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <div class="c-dots" id="cDots"></div>
+  </div>
+
+  <!-- Banner produto -->
+  <div class="hero-product-banner">
+    <img src="img/banner.png" alt="Controladores IoTech.Dev — Tecnologia que conecta, automatiza e transforma" />
+  </div>
+
+</section>
+
+<!-- ── EQUIPE ── -->
+<section id="equipe">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2rem;">
+      <p class="section-eyebrow">Pessoas por trás da tecnologia</p>
+      <h2 class="section-title mx-auto">Nossa <span class="gradient">Equipe</span></h2>
+    </div>
+
+    <div class="equipe-intro">
+      <p>Contamos com uma equipe multidisciplinar apaixonada por tecnologia, inovação e excelência. Reunimos profissionais qualificados que atuam de forma integrada para desenvolver soluções de automação personalizadas, atendendo às necessidades de cada projeto com precisão e eficiência.</p>
+      <p>Nosso compromisso é oferecer um atendimento próximo, suporte especializado e a confiança de quem acompanha cada detalhe, entregando ambientes inteligentes que unem tecnologia, conforto e sofisticação.</p>
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="img/team_alejandro.jpg" alt="Alejandro — Sócio Proprietário e Desenvolvedor" loading="lazy">
+          <div class="team-photo-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">Alejandro</h3>
+          <span class="team-role">Sócio Proprietário<br>e Desenvolvedor</span>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="img/team_lucimara.jpg" alt="Lucimara — Sócia Proprietária" loading="lazy">
+          <div class="team-photo-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">Lucimara</h3>
+          <span class="team-role">Sócia Proprietária</span>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="img/team_tatiane.jpg" alt="Tatiane — Comercial" loading="lazy">
+          <div class="team-photo-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">Tatiane</h3>
+          <span class="team-role">Comercial</span>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="img/team_anderson.jpg" alt="Anderson — Técnico" loading="lazy">
+          <div class="team-photo-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">Anderson</h3>
+          <span class="team-role">Técnico</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── QUADRO – Tecnologia que conecta ── -->
+<section id="quadro">
+  <div class="glow-orb" style="width:320px;height:320px;top:0;left:25%;background:rgba(34,211,238,0.06);"></div>
+  <div class="glow-orb" style="width:280px;height:280px;bottom:0;right:25%;background:rgba(59,130,246,0.08);"></div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="two-col">
+      <div class="img-card blue-glow">
+        <img src="img/quadro_02.jpg" alt="IoTech.Dev – Painel de Automação" loading="lazy" />
+      </div>
+
+      <div>
+        <p class="section-eyebrow">Nossa Tecnologia</p>
+        <h2 class="section-title">
+          Tecnologia que <span class="gradient">conecta, automatiza</span> e transforma.
+        </h2>
+        <p style="color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:2rem;">
+          Trabalhamos diretamente com arquitetos e construtoras, trazendo um diferencial tecnológico aos seus projetos por meio de soluções personalizadas e equipamentos de fabricação própria.
+        </p>
+
+        <ul class="feature-list">
+          <li class="feature-item">
+            <div class="feature-icon">⚙️</div>
+            <div>
+              <strong>Produtos de Fabricação Própria</strong>
+              <p>Controle total de qualidade da concepção à entrega.</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">📐</div>
+            <div>
+              <strong>Projetos Personalizados</strong>
+              <p>Soluções desenvolvidas conforme cada empreendimento.</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">📈</div>
+            <div>
+              <strong>Valor Agregado ao Imóvel</strong>
+              <p>Exclusividade e diferenciação para o seu projeto.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOBRE ── -->
+<section id="sobre">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:3rem;">
+      <h2 class="section-title mx-auto">Sobre a Iotech.Dev</h2>
+      <p class="section-subtitle mx-auto">Movidos por um propósito claro e valores inegociáveis</p>
+    </div>
+
+    <div class="two-col" style="margin-bottom:2rem;">
+      <div class="about-text" style="order:2;">
+        <h3 style="font-size:clamp(1.2rem,3vw,1.75rem);font-weight:300;color:#fff;margin-bottom:1.25rem;line-height:1.3;">
+          Nossa Essência e <span class="gradient" style="background:linear-gradient(90deg,#22d3ee,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:500;">Compromisso com a Excelência</span>
+        </h3>
+        <p>Na IOTech, somos movidos por um propósito claro e por <strong>valores inegociáveis</strong>. Nossa essência está em desenvolver soluções tecnológicas eficientes e seguras, proporcionando mais conforto, praticidade e qualidade de vida por meio da inovação e da tecnologia de ponta.</p>
+        <p>A empresa surgiu da necessidade do mercado por soluções que atendessem às <strong>reais demandas dos clientes</strong>, oferecendo projetos personalizados, materiais de alta qualidade, suporte acessível e eficiente, além de um compromisso constante com a excelência em cada entrega.</p>
+        <div class="quote-box">
+          <p class="quote-main">"Soluções inteligentes que se moldam à sua necessidade."</p>
+          <p class="quote-sub">Trabalhamos diretamente com arquitetos e construtoras, trazendo um diferencial aos seus projetos por meio de soluções tecnológicas personalizadas, qualidade e inovação.</p>
+        </div>
+      </div>
+
+      <div class="img-card" style="order:1;">
+        <img src="img/foto_06.jpg" alt="Fabricação Própria – IoTech.Dev" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="about-photos">
+      <div class="img-card">
+        <img src="img/foto_05.jpg" alt="Nossa Visão – IoTech.Dev" loading="lazy" />
+      </div>
+      <div class="img-card">
+        <img src="img/foto_04.jpg" alt="Nossos Valores – IoTech.Dev" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVIÇOS ── -->
+<section id="servicos">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:3rem;">
+      <h2 class="section-title mx-auto">Produtos e Serviços</h2>
+      <p class="section-subtitle mx-auto">Equipamentos de fabricação própria e instalação especializada para arquitetos e construtoras</p>
+    </div>
+
+    <div style="margin-bottom:3rem;">
+      <div class="img-card" style="max-width:56rem;margin:0 auto;">
+        <img src="img/foto_02.jpg" alt="Sistemas IoTech.Dev – Tecnologia em Ação" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <h3>Módulo Relé 16 Canais</h3>
+        <p>Módulo de automação com 16 canais de relé independentes para controle de cargas elétricas em projetos de automação.</p>
+        <p class="feat-label">Principais características:</p>
+        <ul class="service-features">
+          <li>16 Canais Independentes</li>
+          <li>Alta Capacidade de Carga</li>
+          <li>Montagem em Trilho DIN</li>
+          <li>Integração com Central</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Módulo IR 8 Canais</h3>
+        <p>Módulo infravermelho com 8 canais para controle de equipamentos por IR, compatível com a maioria dos dispositivos do mercado.</p>
+        <p class="feat-label">Principais características:</p>
+        <ul class="service-features">
+          <li>8 Emissores IR</li>
+          <li>Compatibilidade Universal</li>
+          <li>Programação de Cenas</li>
+          <li>Controle Remoto</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3>Placa Relé 8 Canais</h3>
+        <p>Placa compacta com 8 canais de relé para aplicações de automação em projetos de menor escala ou complementares.</p>
+        <p class="feat-label">Principais características:</p>
+        <ul class="service-features">
+          <li>8 Canais de Relé</li>
+          <li>Design Compacto</li>
+          <li>Capacidade 10A</li>
+          <li>Programável</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Quadro de Automação</h3>
+        <p>Quadro de automação desenvolvido de forma personalizada conforme as especificações de cada projeto.</p>
+        <p class="feat-label">Principais características:</p>
+        <ul class="service-features">
+          <li>Configuração Personalizada</li>
+          <li>Integração Completa</li>
+          <li>Conforme Projeto</li>
+          <li>Documentação Técnica</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Placa Dimmer 16 Canais – ETH</h3>
+        <p>Placa dimmer com 16 canais e interface Ethernet para controle de iluminação em projetos de automação.</p>
+        <p class="feat-label">Principais características:</p>
+        <ul class="service-features">
+          <li>16 Canais Dimmerizáveis</li>
+          <li>Interface Ethernet</li>
+          <li>Controle de Cenas</li>
+          <li>Protocolo TCP/IP</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        </div>
+        <h3>Placa Dimmer 08 AC – ETH</h3>
+        <p>Placa dimmer AC com 8 canais e interface Ethernet para controle de iluminação com suavidade e precisão.</p>
+        <p class="feat-label">Principais características:</p>
+        <ul class="service-features">
+          <li>8 Canais AC</li>
+          <li>Interface Ethernet</li>
+          <li>Dimmerização Suave</li>
+          <li>Compatível com Automação</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3>Instalação e Configuração</h3>
+        <p>Realizamos a instalação e configuração dos equipamentos de forma técnica e especializada, garantindo o pleno funcionamento e integração de todas as soluções implementadas.</p>
+        <p class="feat-label">Principais características:</p>
+        <ul class="service-features">
+          <li>Instalação Técnica</li>
+          <li>Configuração Especializada</li>
+          <li>Testes e Comissionamento</li>
+          <li>Suporte Pós-Implantação</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="cta-box">
+      <h3>Pronto para agregar tecnologia ao seu projeto?</h3>
+      <p>Entre em contato conosco e descubra como nossas soluções podem elevar o nível do seu empreendimento.</p>
+      <a href="https://wa.me/5547991560307?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20sobre%20os%20produtos%20e%20servi%C3%A7os%20da%20Iotech.Dev." target="_blank" rel="noopener noreferrer" class="btn btn-white">
+        Solicitar Orçamento
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOCALIZAÇÃO ── -->
+<section id="localizacao">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:3rem;">
+      <h2 class="section-title mx-auto">Nossa Localização</h2>
+      <p class="section-subtitle mx-auto">Estamos estrategicamente localizados em Balneário Camboriú para melhor atendê-lo</p>
+    </div>
+
+    <div class="map-grid">
+      <div>
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d889.9!2d-48.60128700000001!3d-27.0111341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d8b6ffa374819b%3A0x50c404b3634ff74b!2sBarra%20Mall%20-%20Av.%20Herm%C3%B3genes%20Assis%20Feij%C3%B3%2C%20399%20-%2011%20-%20Barra%2C%20Balne%C3%A1rio%20Cambori%C3%BA%20-%20SC%2C%2088330-005!5e0!3m2!1spt-BR!2sbr!4v1000000000000!5m2!1spt-BR!2sbr"
+            title="Localização da Iotech.Dev"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="location-info">
+        <div class="address-block">
+          <div class="loc-icon">
+            <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h3>Endereço Completo</h3>
+            <p>Av. Hermógenes Assis Feijó nº 399<br>Sala 11 – Barra<br>Balneário Camboriú/SC<br>CEP: 88330-005</p>
+          </div>
+        </div>
+
+        <div class="loc-highlight">
+          <h4>Localização Estratégica</h4>
+          <p>Estamos localizados no coração de Balneário Camboriú, em uma região de fácil acesso e com estacionamento disponível. Nossa sede no Barra Mall oferece comodidade e facilidade para nossos clientes.</p>
+        </div>
+
+        <div class="loc-cards">
+          <div class="loc-card">
+            <div class="loc-card-icon" style="background:#0891b2;">
+              <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            </div>
+            <h4>Fácil Acesso</h4>
+            <p>Próximo às principais vias de BC</p>
+          </div>
+          <div class="loc-card">
+            <div class="loc-card-icon" style="background:#1d4ed8;">
+              <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h4>Estacionamento</h4>
+            <p>Vagas disponíveis no local</p>
+          </div>
+        </div>
+
+        <div class="loc-btn-row">
+          <a href="https://www.google.com.br/maps/place/Barra+Mall+-+Av.+Herm%C3%B3genes+Assis+Feij%C3%B3,+399+-+11+-+Barra,+Balne%C3%A1rio+Cambori%C3%BA+-+SC,+88330-005/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex:1;justify-content:center;">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Abrir no Google Maps
+          </a>
+          <button class="btn btn-outline" style="flex:1;" onclick="copyAddress()">
+            Copiar Endereço
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTATO ── -->
+<section id="contato">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:3rem;">
+      <h2 class="section-title mx-auto">Entre em Contato</h2>
+      <p class="section-subtitle mx-auto">Estamos prontos para transformar seu empreendimento. Vamos conversar!</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-card-header">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <h3>Solicite seu Orçamento</h3>
+        </div>
+        <p class="contact-card-desc">Preencha o formulário e entraremos em contato via WhatsApp para agendar uma consultoria gratuita.</p>
+
+        <form id="contact-form" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nome *</label>
+              <input type="text" id="name" name="name" required placeholder="Seu nome completo" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefone *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(00) 00000-0000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Assunto</label>
+            <input type="text" id="subject" name="subject" placeholder="Automação residencial, consultoria, etc." />
+          </div>
+          <div class="form-group">
+            <label for="message">Mensagem *</label>
+            <textarea id="message" name="message" required placeholder="Conte-nos sobre seu projeto e suas necessidades..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Enviar via WhatsApp
+          </button>
+        </form>
+      </div>
+
+      <div class="contact-info-col">
+        <div class="info-card">
+          <h3>Informações de Contato</h3>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.9 19.79 19.79 0 01.22 1.31 2 2 0 012.2 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>Telefone</h4>
+              <a href="https://wa.me/5547991560307?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20Iotech.Dev." target="_blank" rel="noopener noreferrer">(47) 99156-0307</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h4>E-mail</h4>
+              <a href="mailto:contatoiotech.dev@gmail.com">contatoiotech.dev@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Endereço</h4>
+              <p>Av. Hermógenes Assis Feijó nº 399 Sala 11 – Barra</p>
+              <p class="sub">Balneário Camboriú/SC · CEP: 88330-005</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <h4>Instagram</h4>
+              <a href="https://www.instagram.com/iotech.dev.br" target="_blank" rel="noopener noreferrer">@iotech.dev.br</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hours-card">
+          <div class="hours-title">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Horário de Atendimento
+          </div>
+          <div class="hours-row"><span>Segunda a Sexta</span><span>08:00 – 18:00</span></div>
+          <div class="hours-row"><span>Sábado</span><span>08:00 – 12:00</span></div>
+          <div class="hours-row"><span>Domingo</span><span>Fechado</span></div>
+          <div class="hours-note">
+            <strong>Atendimento de emergência:</strong> Disponível 24h para clientes com sistemas instalados.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="img/logo.png" alt="Iotech.Dev" />
+        </div>
+        <p class="footer-desc">Transformamos empreendimentos com soluções tecnológicas personalizadas para arquitetos e construtoras. Qualidade, inovação e tecnologia premium.</p>
+        <p class="footer-tagline">"Personalizado para você, projetado para o futuro."</p>
+      </div>
+
+      <div>
+        <h3 class="footer-col-title">Navegação</h3>
+        <ul class="footer-nav">
+          <li><a href="#inicio" onclick="scrollTo('inicio');return false;">Início</a></li>
+          <li><a href="#sobre" onclick="scrollTo('sobre');return false;">Sobre Nós</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="#localizacao" onclick="scrollTo('localizacao');return false;">Localização</a></li>
+          <li><a href="#contato" onclick="scrollTo('contato');return false;">Contato</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-col-title">Contato</h3>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <div class="footer-ci-icon">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <p>Av. Hermógenes Assis Feijó nº 399<br>Sala 11 – Barra<br>Balneário Camboriú/SC<br>CEP: 88330-005</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-ci-icon">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.9 19.79 19.79 0 01.22 1.31 2 2 0 012.2 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <a href="https://wa.me/5547991560307?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20Iotech.Dev." target="_blank" rel="noopener noreferrer">(47) 99156-0307</a>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-ci-icon">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <a href="mailto:contatoiotech.dev@gmail.com">contatoiotech.dev@gmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-ci-icon">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <a href="https://www.instagram.com/iotech.dev.br" target="_blank" rel="noopener noreferrer">@iotech.dev.br</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-hr" />
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Iotech.Dev – Todos os direitos reservados.</p>
+      <p>Desenvolvido com tecnologia e inovação em Santa Catarina</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP ── -->
+<button id="wa-btn" onclick="window.open('https://wa.me/5547991560307?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20Iotech.Dev.','_blank')" aria-label="Contate-nos pelo WhatsApp">
+  <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.63"/>
+  </svg>
+</button>
+
+<!-- MonteSite badge -->
+<div id="montesite-footer-badge"></div>
+<script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
+
+<script>
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('overlay');
+    const btn = document.getElementById('menu-btn');
+    const isOpen = menu.classList.contains('open');
+    menu.classList.toggle('open', !isOpen);
+    overlay.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  }
+
+  function toggleDropdown() {
+    document.getElementById('nav-solucoes').classList.toggle('open');
+  }
+
+  function toggleMobileSolutions(el) {
+    const sub = el.nextElementSibling;
+    const svg = el.querySelector('svg');
+    sub.classList.toggle('open');
+    svg.style.transform = sub.classList.contains('open') ? 'rotate(180deg)' : '';
+  }
+
+  document.addEventListener('click', e => {
+    const wrap = document.getElementById('nav-solucoes');
+    if (wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
+  });
+
+  setTimeout(() => {
+    document.getElementById('wa-btn').classList.add('visible');
+  }, 2000);
+
+  function submitForm(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    const text = `Olá! Gostaria de mais informações sobre os serviços de automação residencial da Iotech.Dev.\n\nNome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nAssunto: ${subject || 'Consulta geral'}\nMensagem: ${message}`;
+    window.open('https://wa.me/5547991560307?text=' + encodeURIComponent(text), '_blank');
+  }
+
+  function copyAddress() {
+    navigator.clipboard.writeText('Av. Hermógenes Assis Feijó nº 399 Sala 11 – Barra, Balneário Camboriú/SC - CEP: 88330-005')
+      .then(() => alert('Endereço copiado!'));
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ── CAROUSEL ──
+  (function() {
+    const track = document.getElementById('cTrack');
+    const items = track ? track.querySelectorAll('.c-item') : [];
+    const dotsEl = document.getElementById('cDots');
+    if (!track || !items.length) return;
+
+    const VISIBLE = () => window.innerWidth >= 1024 ? 7 : window.innerWidth >= 768 ? 5 : window.innerWidth >= 480 ? 3 : 2;
+    let current = 0;
+    const total = items.length;
+
+    // Build dots
+    const pages = () => Math.ceil(total / VISIBLE());
+    function buildDots() {
+      if (!dotsEl) return;
+      dotsEl.innerHTML = '';
+      for (let i = 0; i < pages(); i++) {
+        const d = document.createElement('div');
+        d.className = 'c-dot' + (i === Math.floor(current / VISIBLE()) ? ' active' : '');
+        d.onclick = () => { current = i * VISIBLE(); render(); };
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function render() {
+      const isDesktop = window.innerWidth >= 1024;
+      if (isDesktop) {
+        track.style.transform = '';
+      } else {
+        const itemW = items[0].offsetWidth + 3;
+        const maxOffset = Math.max(0, (total - VISIBLE()) * itemW);
+        const offset = Math.min(current * itemW, maxOffset);
+        track.style.transform = `translateX(-${offset}px)`;
+      }
+      items.forEach((el, i) => el.classList.toggle('active', i === current));
+      buildDots();
+    }
+
+    window.carouselMove = function(dir) {
+      if (window.innerWidth >= 1024) return;
+      current = Math.max(0, Math.min(total - 1, current + dir));
+      render();
+    };
+
+    items.forEach((el, i) => el.addEventListener('click', () => { current = i; render(); }));
+    window.addEventListener('resize', render);
+    render();
+    buildDots();
+  })();
+</script>
+
+</body>
+</html>
