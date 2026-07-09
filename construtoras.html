@@ -98,21 +98,80 @@
     .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; font-size: 0.95rem; font-weight: 500; padding: 0.75rem 1.75rem; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.25); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
     .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
 
-    /* PLACEHOLDER CONTENT */
-    .section-placeholder {
-      padding: 6rem 0;
+    /* CONTENT SECTION */
+    .content-section {
+      padding: 5rem 0;
       position: relative;
-      background-image: url('img/fundo.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      background: #0b1528;
     }
-    .section-placeholder::before { content: ''; position: absolute; inset: 0; background: rgba(5,10,30,0.88); z-index: 0; }
-    .section-placeholder .container { position: relative; z-index: 1; }
-    .placeholder-center { text-align: center; max-width: 600px; margin: 0 auto; }
-    .placeholder-center .icon { width: 72px; height: 72px; background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
-    .placeholder-center h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
-    .placeholder-center p { color: #94a3b8; font-size: 1rem; line-height: 1.7; }
+    .content-section + .content-section { border-top: 1px solid rgba(255,255,255,0.06); }
+    .content-section.alt { background: #0d1a30; }
+    .content-section .container { position: relative; z-index: 1; }
+
+    /* Intro block */
+    .intro-block { max-width: 780px; margin: 0 auto; text-align: center; }
+    .intro-block .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.25rem; }
+    .intro-block h2 { font-size: clamp(1.6rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.25; margin-bottom: 1.5rem; }
+    .intro-block h2 span { color: var(--cyan); }
+    .intro-block p { font-size: 1.05rem; color: #94a3b8; line-height: 1.8; margin-bottom: 1rem; }
+    .intro-block p:last-child { margin-bottom: 0; }
+
+    /* highlight quote */
+    .highlight-quote {
+      margin: 3rem auto 0;
+      max-width: 720px;
+      background: rgba(34,211,238,0.06);
+      border-left: 3px solid var(--cyan);
+      border-radius: 0 10px 10px 0;
+      padding: 1.5rem 2rem;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    /* Solutions grid */
+    .solutions-grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    @media (min-width: 640px) { .solutions-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .solutions-grid { grid-template-columns: repeat(3, 1fr); } }
+    .sol-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .sol-card:hover { background: rgba(34,211,238,0.05); border-color: rgba(34,211,238,0.2); transform: translateY(-3px); }
+    .sol-card-icon {
+      width: 44px; height: 44px;
+      background: rgba(34,211,238,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--cyan);
+    }
+    .sol-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .sol-card p { font-size: 0.85rem; color: #64748b; line-height: 1.6; }
+
+    /* CTA section */
+    .cta-section {
+      padding: 5rem 0;
+      position: relative;
+      background: linear-gradient(135deg, rgba(34,211,238,0.07) 0%, rgba(59,130,246,0.05) 100%);
+      border-top: 1px solid rgba(34,211,238,0.12);
+      text-align: center;
+    }
+    .cta-section h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { color: #94a3b8; font-size: 1rem; margin-bottom: 2rem; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--cyan); color: #0f172a; font-size: 0.95rem; font-weight: 600; padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: #67e8f9; transform: translateY(-1px); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; font-size: 0.95rem; font-weight: 500; padding: 0.75rem 1.75rem; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.25); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
 
     /* FOOTER */
     footer { position: relative; background-image: url('img/fundo.png'); background-size: cover; background-position: center; background-attachment: fixed; }
@@ -153,6 +212,7 @@
       <ul class="nav-links">
         <li><a href="index.html">Início</a></li>
         <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#equipe">Equipe</a></li>
         <li><a href="produtos.html">Produtos</a></li>
         <li class="nav-dropdown-wrap" id="nav-solucoes">
           <button class="nav-dropdown-btn" onclick="toggleDropdown()" aria-haspopup="true">
@@ -189,6 +249,7 @@
   <ul class="mobile-nav-links">
     <li><a href="index.html" onclick="toggleMenu()">Início</a></li>
     <li><a href="index.html#sobre" onclick="toggleMenu()">Sobre</a></li>
+    <li><a href="index.html#equipe" onclick="toggleMenu()">Equipe</a></li>
     <li><a href="produtos.html" onclick="toggleMenu()">Produtos</a></li>
     <li>
       <div class="mobile-solutions-toggle" onclick="toggleMobileSolutions(this)">
@@ -215,7 +276,7 @@
         Soluções para Construtoras
       </div>
       <h1>Tecnologia que <span>agrega valor</span> ao seu empreendimento</h1>
-      <p>Integramos automação, segurança eletrônica e soluções inteligentes diretamente na planta — elevando o padrão do seu empreendimento e o valor de cada unidade.</p>
+      <p>Você já pensou em entregar um empreendimento que se destaque no mercado antes mesmo da venda?</p>
       <div class="hero-actions">
         <a href="index.html#contato" class="btn-primary">
           Falar com Especialista
@@ -227,15 +288,77 @@
   </div>
 </section>
 
-<!-- CONTEÚDO PLACEHOLDER -->
-<section class="section-placeholder">
+<!-- CONTEÚDO PRINCIPAL -->
+<section class="content-section">
   <div class="container">
-    <div class="placeholder-center">
-      <div class="icon">
-        <svg width="32" height="32" fill="none" stroke="#22d3ee" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <div class="intro-block">
+      <span class="eyebrow">Para Construtoras &amp; Incorporadoras</span>
+      <h2>Empreendimentos que se destacam pelo <span>valor e inovação</span></h2>
+      <p>Hoje, tecnologia, automação e conectividade deixaram de ser diferenciais e passaram a ser atributos altamente valorizados por compradores e investidores.</p>
+      <p>Ajudamos construtoras e incorporadoras a integrar soluções inteligentes aos seus empreendimentos — automação residencial, controle de acesso, monitoramento, iluminação inteligente, infraestrutura para casas conectadas e sistemas integrados de segurança.</p>
+      <div class="highlight-quote">
+        O resultado é um produto mais moderno, valorizado e atrativo para o mercado, gerando maior percepção de qualidade e exclusividade para o cliente final.
       </div>
-      <h2>Conteúdo em breve</h2>
-      <p>Esta página está sendo preparada com detalhes das soluções exclusivas Iotech.Dev para construtoras. Em breve você encontrará aqui todas as informações sobre integração tecnológica em empreendimentos.</p>
+    </div>
+
+    <div class="solutions-grid">
+      <div class="sol-card">
+        <div class="sol-card-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3>Automação Residencial</h3>
+        <p>Unidades entregues com infraestrutura completa para casas inteligentes conectadas.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Controle de Acesso</h3>
+        <p>Portões, interfones e áreas comuns com acesso seguro e monitorado.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M17 7h5M2 17h5M17 17h5"/></svg>
+        </div>
+        <h3>Monitoramento</h3>
+        <p>Câmeras e sistemas de segurança integrados em áreas comuns e privativas.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        </div>
+        <h3>Iluminação Inteligente</h3>
+        <p>Áreas comuns com iluminação automatizada e eficiente energeticamente.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Infraestrutura Conectada</h3>
+        <p>Cabeamento estruturado e infraestrutura preparada para integração total.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Sistemas de Segurança</h3>
+        <p>Alarmes, sensores e sistemas integrados para máxima proteção do empreendimento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Vamos agregar valor ao seu próximo lançamento?</h2>
+    <p>Gostaríamos de apresentar algumas soluções que podem agregar valor aos seus próximos lançamentos. Entre em contato e descubra como a Iotech.Dev pode transformar o seu empreendimento.</p>
+    <div class="cta-btns">
+      <a href="index.html#contato" class="btn-primary">
+        Falar com Especialista
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="produtos.html" class="btn-outline">Ver Produtos</a>
     </div>
   </div>
 </section>

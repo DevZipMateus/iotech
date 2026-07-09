@@ -864,7 +864,7 @@
       min-height: 88vh;
       display: flex;
       align-items: center;
-      background-image: url('img/hero_bg.jpg');
+      background-image: url('img/hero_bg_new.png');
       background-size: cover;
       background-position: center center;
     }
@@ -915,7 +915,7 @@
     .hero-h1 .cyan { color: var(--cyan); display: block; }
 
     .hero-sub-text {
-      font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+      font-size: clamp(0.85rem, 1.3vw, 1rem);
       color: rgba(255,255,255,0.75);
       line-height: 1.7;
       margin-bottom: 2rem;
@@ -1132,14 +1132,14 @@
 <header id="navbar">
   <div class="container">
     <div class="nav-inner">
-      <a href="#inicio" class="nav-logo" onclick="scrollTo('inicio');return false;">
+      <a href="#inicio" class="nav-logo" onclick="scrollToSection('inicio');return false;">
         <img src="img/logo.png" alt="Iotech.Dev" />
       </a>
 
       <ul class="nav-links">
-        <li><a href="#inicio" onclick="scrollTo('inicio');return false;">Início</a></li>
-        <li><a href="#sobre" onclick="scrollTo('sobre');return false;">Sobre</a></li>
-        <li><a href="#equipe" onclick="scrollTo('equipe');return false;">Equipe</a></li>
+        <li><a href="#inicio" onclick="scrollToSection('inicio');return false;">Início</a></li>
+        <li><a href="#sobre" onclick="scrollToSection('sobre');return false;">Sobre</a></li>
+        <li><a href="#equipe" onclick="scrollToSection('equipe');return false;">Equipe</a></li>
         <li><a href="produtos.html">Produtos</a></li>
         <li class="nav-dropdown-wrap" id="nav-solucoes">
           <button class="nav-dropdown-btn" onclick="toggleDropdown()" aria-haspopup="true">
@@ -1151,12 +1151,12 @@
             <a href="arquitetos.html">Arquitetos</a>
           </div>
         </li>
-        <li><a href="#localizacao" onclick="scrollTo('localizacao');return false;">Localização</a></li>
-        <li><a href="#contato" onclick="scrollTo('contato');return false;">Contato</a></li>
+        <li><a href="#localizacao" onclick="scrollToSection('localizacao');return false;">Localização</a></li>
+        <li><a href="#contato" onclick="scrollToSection('contato');return false;">Contato</a></li>
       </ul>
 
       <div class="nav-cta">
-        <a href="#contato" class="nav-btn-primary" onclick="scrollTo('contato');return false;">
+        <a href="#contato" class="nav-btn-primary" onclick="scrollToSection('contato');return false;">
           Solicitar Orçamento
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -1177,9 +1177,9 @@
     <button id="close-menu" onclick="toggleMenu()" aria-label="Fechar menu">&times;</button>
   </div>
   <ul class="mobile-nav-links">
-    <li><a href="#inicio" onclick="scrollTo('inicio');toggleMenu();return false;">Início</a></li>
-    <li><a href="#sobre" onclick="scrollTo('sobre');toggleMenu();return false;">Sobre</a></li>
-    <li><a href="#equipe" onclick="scrollTo('equipe');toggleMenu();return false;">Equipe</a></li>
+    <li><a href="#inicio" onclick="scrollToSection('inicio');toggleMenu();return false;">Início</a></li>
+    <li><a href="#sobre" onclick="scrollToSection('sobre');toggleMenu();return false;">Sobre</a></li>
+    <li><a href="#equipe" onclick="scrollToSection('equipe');toggleMenu();return false;">Equipe</a></li>
     <li><a href="produtos.html">Produtos</a></li>
     <li>
       <div class="mobile-solutions-toggle" onclick="toggleMobileSolutions(this)">
@@ -1191,8 +1191,8 @@
         <a href="arquitetos.html" onclick="toggleMenu()">Arquitetos</a>
       </div>
     </li>
-    <li><a href="#localizacao" onclick="scrollTo('localizacao');toggleMenu();return false;">Localização</a></li>
-    <li><a href="#contato" onclick="scrollTo('contato');toggleMenu();return false;">Contato</a></li>
+    <li><a href="#localizacao" onclick="scrollToSection('localizacao');toggleMenu();return false;">Localização</a></li>
+    <li><a href="#contato" onclick="scrollToSection('contato');toggleMenu();return false;">Contato</a></li>
   </ul>
   <p class="mobile-footer-note">© 2025 Iotech.Dev – Todos os direitos reservados</p>
 </nav>
@@ -1209,12 +1209,12 @@
           <!-- Esquerda: título + desc + botões -->
           <div>
             <h1 class="hero-h1">
-              Soluções inteligentes
+              Soluções tecnológicas
               <span class="cyan">que se moldam à<br>sua necessidade.</span>
             </h1>
-            <p class="hero-sub-text">Automação, integração e controle para ambientes residenciais, comerciais e empreendimentos.</p>
+            <p class="hero-sub-text">Projetamos soluções tecnológicas para construtoras, incorporadoras e escritórios de arquitetura que buscam diferenciação, inovação e valorização em seus projetos e empreendimentos.</p>
             <div class="hero-btns">
-              <a href="#servicos" class="btn-hero-cyan" onclick="scrollTo('servicos');return false;">
+              <a href="#servicos" class="btn-hero-cyan" onclick="scrollToSection('servicos');return false;">
                 Conheça nossas soluções
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
@@ -1338,7 +1338,7 @@
 
   <!-- Banner produto -->
   <div class="hero-product-banner">
-    <img src="img/banner.png" alt="Controladores IoTech.Dev — Tecnologia que conecta, automatiza e transforma" />
+    <img src="img/banner_quadro.png" alt="Controladores IoTech.Dev — Tecnologia que conecta, automatiza e transforma" />
   </div>
 
 </section>
@@ -1414,7 +1414,7 @@
   <div class="container" style="position:relative;z-index:1;">
     <div class="two-col">
       <div class="img-card blue-glow">
-        <img src="img/quadro_02.jpg" alt="IoTech.Dev – Painel de Automação" loading="lazy" />
+        <img src="img/foto_quadro.png" alt="IoTech.Dev – Painel de Automação" loading="lazy" />
       </div>
 
       <div>
@@ -1817,11 +1817,11 @@
       <div>
         <h3 class="footer-col-title">Navegação</h3>
         <ul class="footer-nav">
-          <li><a href="#inicio" onclick="scrollTo('inicio');return false;">Início</a></li>
-          <li><a href="#sobre" onclick="scrollTo('sobre');return false;">Sobre Nós</a></li>
+          <li><a href="#inicio" onclick="scrollToSection('inicio');return false;">Início</a></li>
+          <li><a href="#sobre" onclick="scrollToSection('sobre');return false;">Sobre Nós</a></li>
           <li><a href="produtos.html">Produtos</a></li>
-          <li><a href="#localizacao" onclick="scrollTo('localizacao');return false;">Localização</a></li>
-          <li><a href="#contato" onclick="scrollTo('contato');return false;">Contato</a></li>
+          <li><a href="#localizacao" onclick="scrollToSection('localizacao');return false;">Localização</a></li>
+          <li><a href="#contato" onclick="scrollToSection('contato');return false;">Contato</a></li>
         </ul>
       </div>
 
@@ -1877,7 +1877,7 @@
 <script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
 
 <script>
-  function scrollTo(id) {
+  function scrollToSection(id) {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   }
